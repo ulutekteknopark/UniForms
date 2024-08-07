@@ -8,8 +8,22 @@
   "private": true,
   "devDependencies": {
     "@nx-dotnet/core": "^2.4.2",
+    "@nx/eslint": "19.5.6",
+    "@nx/eslint-plugin": "19.5.6",
     "@nx/js": "19.5.6",
     "@nx/workspace": "19.5.6",
-    "nx": "19.5.6"
-  }
+    "@openapitools/openapi-generator-cli": "^2.13.4",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "@types/node": "18.16.9",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "eslint": "~8.57.0",
+    "eslint-config-prettier": "^9.0.0",
+    "nx": "19.5.6",
+    "prettier": "^2.6.2",
+    "typescript": "~5.5.2"
+  },
+  "dependencies": {}
 }

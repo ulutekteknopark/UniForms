@@ -1,0 +1,23 @@
+{
+  "name": "uniforms.api-swagger",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build": {
+      "executor": "nx:noop",
+      "outputs": ["libs/generated/uniforms.api-swagger"]
+    },
+    "codegen": {
+      "executor": "@nx-dotnet/core:openapi-codegen",
+      "options": {
+        "useOpenApiGenerator": true,
+        "openApiGenerator": "typescript",
+        "openapiJsonPath": "libs/generated/uniforms.api-swagger",
+        "outputProject": "generated-uniforms.api-types"
+      },
+      "dependsOn": ["swagger"],
+      "inputs": ["{projectRoot}/libs/generated/uniforms.api-swagger"],
+      "outputs": ["{workspaceRoot}"]
+    }
+  },
+  "implicitDependencies": ["uniforms.api"]
+}

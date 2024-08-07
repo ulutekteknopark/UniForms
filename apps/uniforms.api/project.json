@@ -1,0 +1,17 @@
+{
+  "name": "uniforms.api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/uniforms.api",
+  "tags": [],
+  "targets": {
+    "swagger": {
+      "executor": "@nx-dotnet/core:update-swagger",
+      "outputs": ["{workspaceRoot}/libs/generated/uniforms.api-swagger"],
+      "options": {
+        "output": "libs/generated/uniforms.api-swagger"
+      },
+      "dependsOn": ["build"]
+    }
+  }
+}
