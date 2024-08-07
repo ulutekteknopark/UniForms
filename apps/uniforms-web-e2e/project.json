@@ -1,0 +1,10 @@
+{
+  "name": "uniforms-web-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/uniforms-web-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["uniforms-web"],
+  "// targets": "to see all targets run: nx show project uniforms-web-e2e --web",
+  "targets": {}
+}
