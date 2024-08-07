@@ -10,4 +10,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\libs\auth\uf-auth-api\Uniforms.Auth.UfAuthApi.csproj" />
+  </ItemGroup>
+
 </Project>
