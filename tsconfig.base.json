@@ -17,6 +17,9 @@
     "paths": {
       "@uniforms/generated/uniforms.api-types": [
         "libs/generated/uniforms.api-types/src/index.ts"
+      ],
+      "@uniforms/uf-web-components": [
+        "libs/shared/uf-web-components/src/index.ts"
       ]
     }
   },
