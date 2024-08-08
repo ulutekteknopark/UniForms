@@ -1,0 +1,10 @@
+<nav class="uf-navbar">
+  <div class="brand">
+    <a [routerLink]="['/']">{{ brandText }}</a>
+  </div>
+  <ul class="links">
+    <li *ngFor="let link of links">
+      <a [routerLink]="[link.url]">{{ link.label }}</a>
+    </li>
+  </ul>
+</nav>

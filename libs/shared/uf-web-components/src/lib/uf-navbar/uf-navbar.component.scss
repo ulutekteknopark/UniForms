@@ -1,0 +1,38 @@
+.uf-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ccc;
+  padding: 16px 32px;
+
+  .brand {
+    a {
+      color: #181818;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  .links {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-left: 20px;
+
+      a {
+        color: #181818;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #727272;
+        }
+      }
+    }
+  }
+}
