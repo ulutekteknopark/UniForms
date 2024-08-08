@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './uf-button.component.html',
   styleUrl: './uf-button.component.scss',
 })
-export class UfButtonComponent {}
+export class UfButtonComponent {
+  @Input() label: string = 'Button';
+  @Input() backgroundColor: string = 'white';
+  @Input() textColor: string = 'white';
+  @Input() size: 'small' | 'medium' | 'large' = 'medium';
+  @Input() fontWeight: 'bold' | 'normal' = 'normal';
+  @Input() round: boolean = false;
+  @Input() disabled: boolean = false;
+}

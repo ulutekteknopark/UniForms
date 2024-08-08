@@ -1,24 +1,38 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { UfButtonComponent } from './uf-button.component';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
-
 const meta: Meta<UfButtonComponent> = {
   component: UfButtonComponent,
   title: 'UfButtonComponent',
+  argTypes: {
+    textColor: { control: 'color' },
+    backgroundColor: { control: 'color' },
+    round: { control: 'boolean' },
+    fontWeight: {
+      options: ['normal', 'bold'],
+      control: { type: 'select' },
+    },
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' },
+    },
+    disabled: {
+      control: { type: 'boolean' },
+    },
+  },
 };
+
 export default meta;
 type Story = StoryObj<UfButtonComponent>;
 
 export const Primary: Story = {
-  args: {},
-};
-
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/uf-button works!/gi)).toBeTruthy();
+  args: {
+    label: 'Button',
+    size: 'medium',
+    fontWeight: 'normal',
+    round: true,
+    disabled: false,
+    textColor: '#181818',
+    backgroundColor: '#ccc',
   },
 };
