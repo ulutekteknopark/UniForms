@@ -41,7 +41,8 @@
         "browserTarget": "uf-web-components:build-storybook",
         "compodoc": false,
         "styles": [
-          "./node_modules/@angular/material/prebuilt-themes/azure-blue.css"
+          "./node_modules/@angular/material/prebuilt-themes/azure-blue.css",
+          "libs/shared/uf-web-components/.storybook/styles.scss"
         ]
       },
       "configurations": {
@@ -57,7 +58,8 @@
         "outputDir": "dist/storybook/uf-web-components",
         "configDir": "libs/shared/uf-web-components/.storybook",
         "browserTarget": "uf-web-components:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": ["libs/shared/uf-web-components/.storybook/styles.scss"]
       },
       "configurations": {
         "ci": {
