@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UfSignupFormComponent } from './uf-signup-form.component';
 
-describe('UfSignupFormComponent', () => {
+describe('UfSignupForm2Component', () => {
   let component: UfSignupFormComponent;
   let fixture: ComponentFixture<UfSignupFormComponent>;
 

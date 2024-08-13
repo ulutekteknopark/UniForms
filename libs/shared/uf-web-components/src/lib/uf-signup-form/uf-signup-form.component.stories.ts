@@ -19,6 +19,6 @@ export const Heading: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/uf-signup-form works!/gi)).toBeTruthy();
+    expect(canvas.getByText(/uf-signup-form-2 works!/gi)).toBeTruthy();
   },
 };
