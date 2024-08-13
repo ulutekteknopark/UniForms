@@ -39,7 +39,10 @@
         "port": 4400,
         "configDir": "libs/shared/uf-web-components/.storybook",
         "browserTarget": "uf-web-components:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/azure-blue.css"
+        ]
       },
       "configurations": {
         "ci": {

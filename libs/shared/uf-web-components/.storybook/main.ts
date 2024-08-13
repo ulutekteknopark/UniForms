@@ -6,6 +6,7 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/angular',
     options: {},
+    
   },
 };
 
