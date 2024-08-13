@@ -1,0 +1,26 @@
+<h2 mat-dialog-title class="text-lg font-semibold">Uniforms'a Kayıt Ol</h2>
+<mat-dialog-content>
+  <form class="example-form space-y-4 p-4">
+    <div class="flex flex-col space-y-2">
+      <uf-form-input title="Ad" class="w-full"></uf-form-input>
+      <uf-form-input title="Soyad" class="w-full"></uf-form-input>
+    </div>
+    <div class="mx-4">
+      <uf-email-input></uf-email-input>
+    </div>
+    <div class="flex flex-col space-y-2">
+      <uf-password-input class="w-full"></uf-password-input>
+      <uf-password-input class="w-full"></uf-password-input>
+    </div>
+    <div class="flex items-center space-x-2">
+      <uf-checkbox></uf-checkbox>
+      <span>Ben robot değilim</span> <!-- (Eğer gerekli ise) -->
+    </div>
+    <div class="flex justify-end">
+      <uf-button></uf-button>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close class="bg-gray-200 px-4 py-2 rounded">İptal</button>
+</mat-dialog-actions>
