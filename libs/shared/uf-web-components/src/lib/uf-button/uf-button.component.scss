@@ -1,0 +1,10 @@
+button{
+  background-color: #581c87 !important;
+
+  color: #fff !important;
+}
+
+button[disabled='true']{
+  color: #bbb7b9 !important;
+  background-color:  #e4e0e3 !important;
+}
