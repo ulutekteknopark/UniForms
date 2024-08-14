@@ -14,5 +14,8 @@ type Story = StoryObj<UfFormInputComponent>;
 export const Primary: Story = {
   args: {
     title: "Default",
+    placeholder: "",
+    required: false,
+    error: "Lütfen geçerli bir değer girin!",
   },
 };
