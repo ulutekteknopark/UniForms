@@ -14,11 +14,3 @@ type Story = StoryObj<UfEmailInputComponent>;
 export const Primary: Story = {
   args: {},
 };
-
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/uf-email-input works!/gi)).toBeTruthy();
-  },
-};

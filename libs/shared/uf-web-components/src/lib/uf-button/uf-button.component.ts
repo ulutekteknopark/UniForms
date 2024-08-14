@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -11,4 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './uf-button.component.html',
   styleUrl: './uf-button.component.scss',
 })
-export class UfButtonComponent { }
+export class UfButtonComponent {
+  @Input() wfull : boolean = false;
+  @Input() title : string = "Default";
+}

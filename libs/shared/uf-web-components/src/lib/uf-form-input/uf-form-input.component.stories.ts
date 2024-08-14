@@ -12,13 +12,7 @@ export default meta;
 type Story = StoryObj<UfFormInputComponent>;
 
 export const Primary: Story = {
-  args: {},
-};
-
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/uf-form-input works!/gi)).toBeTruthy();
+  args: {
+    title: "Default",
   },
 };

@@ -1,27 +1,29 @@
 <section class="text-gray-800 body-font overflow-hidden">
   <div class="container px-5 py-24 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+    <div class="mx-auto flex flex-wrap justify-center align-middle border-solid border-2 rounded-lg border-gray-700 overflow-clip">
+      <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center"
         src="https://dummyimage.com/400x400">
-      <div class="lg:w-3/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
+      <div class="lg:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 align-middle justify-center">
+        <h2 class="text-gray-900 text-4xl font-bold title-font mb-5">Uniforms'a Kayıt Ol</h2>
         <div class="relative gap-x-4 flex flex-row flex-wrap">
           <uf-form-input class="flex-grow" title="İsim"></uf-form-input>
           <uf-form-input class="flex-grow" title="Soyisim"></uf-form-input>
         </div>
-        <div class="relative ">
+        <div class="relative">
           <uf-email-input></uf-email-input>
         </div>
-        <div class="relative ">
+        <div class="relative">
           <uf-password-input></uf-password-input>
-          <uf-password-input></uf-password-input>
+          <uf-password-input title="Şifre Tekrar"></uf-password-input>
         </div>
-        <div class="relative ">
-          <uf-checkbox></uf-checkbox>
+        <div class="relative mb-4">
+          <uf-checkbox title="Kullanım Koşullarını ve Gizlilik Politikasını okudum ve kabul ediyorum."></uf-checkbox>
         </div>
-        <div class="relative ">
-          <uf-button></uf-button>
-          <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
+        <div class="relative mb-4">
+          <uf-button title="Kayıt Ol!" wfull=true></uf-button>
+        </div>
+        <div class="relative">
+          Zaten hesabınız var mı ? <a href="">Giriş Yap</a>
         </div>
       </div>
     </div>

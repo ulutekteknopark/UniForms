@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, model } from '@angular/core';
+import { Component, ChangeDetectionStrategy, model, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UfCheckboxComponent {
+  @Input() title: string = "Default";
   checked = model(false);
 }
 
