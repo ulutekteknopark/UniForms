@@ -14,5 +14,6 @@ type Story = StoryObj<UfButtonComponent>;
 export const Primary: Story = {
   args: {
     title: "Default",
+    wfull: false,
   },
 };
