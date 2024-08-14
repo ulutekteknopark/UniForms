@@ -434,6 +434,7 @@ import { CommonModule } from '@angular/common';
             <span> Hello there, </span>
             Welcome uniforms-web 👋
           </h1>
+          <button>Giriş Yap</button>
         </div>
         <!--  HERO  -->
         <div id="hero" class="rounded">
