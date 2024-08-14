@@ -1,11 +1,14 @@
-<div class="m-1 w-full">
+<div class="p-1 w-full">
   <mat-form-field class="w-full" appearance="outline">
     <mat-label>{{ title }}</mat-label>
-    <input matInput type="text" [(ngModel)]="value">
+    <input matInput type="text" [(ngModel)]="value" [formControl]="inputFormControl" placeholder="{{ placeholder }}">
     @if (value) {
-    <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-      <mat-icon>close</mat-icon>
-    </button>
+      <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    }
+    @if (inputFormControl.hasError('required')) {
+      <mat-error>{{ error }}</mat-error>
     }
   </mat-form-field>
 </div>
