@@ -14,6 +14,6 @@ type Story = StoryObj<UfPasswordInputComponent>;
 export const Primary: Story = {
   args: {
     title: "Şifre",
-    placeholder: "Örn: ram@örnek.com",
+    placeholder: "Örn: 1q9eAdkw2;,",
   },
 };

@@ -13,7 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrl: './uf-password-input.component.scss',
 })
 export class UfPasswordInputComponent {
-  passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  @Input() passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
   @Input() title: string = "Şifre";
-  @Input() placeholder: string = "Örn: ram@örnek.com";
+  @Input() placeholder: string = "Örn: 1q9eAdkw2;,";
 }

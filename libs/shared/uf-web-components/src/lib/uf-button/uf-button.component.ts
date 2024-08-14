@@ -14,4 +14,5 @@ import { MatButtonModule } from '@angular/material/button';
 export class UfButtonComponent {
   @Input() wfull : boolean = false;
   @Input() title : string = "Default";
+  @Input() disabled: boolean = false;
 }

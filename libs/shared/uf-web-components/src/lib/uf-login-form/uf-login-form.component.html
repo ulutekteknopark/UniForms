@@ -4,13 +4,19 @@
       <div class="lg:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 align-middle justify-center">
         <h2 class="text-purple-900 text-4xl font-bold title-font mb-5">Uniforms'a Giriş Yap</h2>
         <div class="relative">
-          <uf-email-input></uf-email-input>
+          <uf-email-input [emailFormControl]="emailFormControl"></uf-email-input>
         </div>
         <div class="relative">
-          <uf-password-input></uf-password-input>
+          <uf-password-input [passwordFormControl]="passwordFormControl"></uf-password-input>
         </div>
         <div class="relative mb-4">
-          <uf-button  title="Giriş Yap" wfull=true></uf-button>
+          <uf-button  
+            title="Giriş Yap"
+            wfull=true
+            (click)="onSubmit()"
+            [disabled]="emailFormControl.invalid || passwordFormControl.invalid"
+            >
+          </uf-button>
         </div>
         <div class="relative">
           hesabınız yok  mu? <a href="">Kayıt Ol</a>

@@ -16,24 +16,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   styleUrl: './uf-form-input.component.scss',
 })
 
-export class UfFormInputComponent implements OnInit {
+export class UfFormInputComponent {
   @Input() title: string = "Default";
   @Input() placeholder: string = "";
   @Input() error: string = "Lütfen geçerli bir değer girin!";
   @Input() required: boolean = false;
 
-  private _inputFormControl!: FormControl;
-  value = '';
-
-  ngOnInit() {
-    const validators = [];
-    if (this.required) {
-      validators.push(Validators.required);
-    }
-    this._inputFormControl = new FormControl('', validators);
-  }
-
-  get inputFormControl(): FormControl {
-    return this._inputFormControl;
-  }
+  @Input() inputFormControl: FormControl = new FormControl('', [Validators.required]);
 }

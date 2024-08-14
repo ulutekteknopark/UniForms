@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, model, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, model, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -13,6 +13,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 })
 export class UfCheckboxComponent {
   @Input() title: string = "Default";
-  checked = model(false);
+  isChecked = false
+  @Output() onCheckedChange = new EventEmitter<boolean>();
+
+  onChange(){
+    this.isChecked = !this.isChecked;
+    this.onCheckedChange.emit(this.isChecked);
+  }
 }
 
