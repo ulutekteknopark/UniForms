@@ -6,11 +6,13 @@ import { UfPasswordInputComponent } from '../uf-password-input/uf-password-input
 import { UfEmailInputComponent } from '../uf-email-input/uf-email-input.component';
 import { UfCheckboxComponent } from '../uf-checkbox/uf-checkbox.component';
 import { UfButtonComponent } from '../uf-button/uf-button.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'uf-login-form',
   standalone: true,
-  imports: [CommonModule, UfButtonComponent, UfEmailInputComponent, UfCheckboxComponent, UfPasswordInputComponent, UfFormInputComponent],
+  imports: [MatIcon,CommonModule, MatDialogModule, UfButtonComponent, UfEmailInputComponent, UfCheckboxComponent, UfPasswordInputComponent, UfFormInputComponent],
   templateUrl: './uf-login-form.component.html',
   styleUrl: './uf-login-form.component.scss',
 })
