@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Validators, FormControl } from '@angular/forms';
-import { UfFormInputComponent } from '../uf-form-input/uf-form-input.component';
-import { UfPasswordInputComponent } from '../uf-password-input/uf-password-input.component';
-import { UfEmailInputComponent } from '../uf-email-input/uf-email-input.component';
-import { UfCheckboxComponent } from '../uf-checkbox/uf-checkbox.component';
-import { UfButtonComponent } from '../uf-button/uf-button.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
+import { UfSocialLoginFormComponent } from '../uf-social-login-form/uf-social-login-form.component';
+import {
+  UfFormInputComponent,
+  UfButtonComponent,
+  UfCheckboxComponent,
+  UfPasswordInputComponent,
+  UfEmailInputComponent,
+} from '@uniforms/uf-web-components';
 
 @Component({
   selector: 'uf-signup-form',
@@ -24,6 +28,8 @@ export class UfSignupFormComponent {
   repeatpasswordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
   isCheckboxChecked: boolean = false;
 
+  constructor(public dialog: MatDialog) { }
+
   onSubmit(): void {
     if(this.isValid()){
       console.log(`
@@ -38,7 +44,6 @@ export class UfSignupFormComponent {
   }
 
   isValid(): boolean {
-
     return (
       this.nameFormControl.valid &&
       this.surnameFormControl.valid &&
@@ -52,5 +57,18 @@ export class UfSignupFormComponent {
 
   onCheckboxChange(isChecked: boolean) {
     this.isCheckboxChecked = isChecked;
+  }
+
+  close():void{
+    this.dialog.closeAll();
+    this.dialog.open(UfSocialLoginFormComponent, {
+      width: '30vw',
+      maxWidth: '60vw',
+
+      height: '75vh',
+      maxHeight: '75vh',
+
+      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
+    });
   }
 }

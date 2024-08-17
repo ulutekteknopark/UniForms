@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginModalComponent } from '../login-modal/login-modal.component';
+
+import { UfSocialLoginFormComponent } from '../uf-social-login-form/uf-social-login-form.component';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,15 @@ export class HeaderComponent {
   constructor(public dialog: MatDialog) { }
 
   openLoginModal(): void {
-    this.dialog.open(LoginModalComponent, {
+    this.dialog.open(UfSocialLoginFormComponent, {
+      width: '30vw',
+      maxWidth: '60vw',
+
+      height: '75vh',
+      maxHeight: '75vh',
+
+      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
+      backdropClass: 'backdrop-blur-sm',
     });
   }
 }

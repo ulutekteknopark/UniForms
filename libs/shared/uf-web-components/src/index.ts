@@ -7,7 +7,3 @@ export * from './lib/uf-button/uf-button.component';
 export * from './lib/uf-email-input/uf-email-input.component';
 
 export * from './lib/uf-password-input/uf-password-input.component';
-
-export * from './lib/uf-signup-form/uf-signup-form.component';
-
-export * from './lib/uf-login-form/uf-login-form.component';
