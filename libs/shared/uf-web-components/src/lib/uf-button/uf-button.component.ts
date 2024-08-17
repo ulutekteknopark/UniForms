@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, booleanAttribute } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './uf-button.component.scss',
 })
 export class UfButtonComponent {
-  @Input() wfull : boolean = false;
   @Input() title : string = "Default";
   @Input() disabled: boolean = false;
+  @Input({
+    transform: booleanAttribute,
+  }) wfull : boolean = false;
 }

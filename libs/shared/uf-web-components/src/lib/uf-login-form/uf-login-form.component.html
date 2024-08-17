@@ -11,9 +11,9 @@
             <uf-password-input [passwordFormControl]="passwordFormControl"></uf-password-input>
           </div>
           <div class="relative mb-4">
-            <uf-button  
+            <uf-button
               title="Giriş Yap"
-              wfull=true
+              wfull
               (click)="onSubmit()"
               [disabled]="emailFormControl.invalid || passwordFormControl.invalid"
               >
