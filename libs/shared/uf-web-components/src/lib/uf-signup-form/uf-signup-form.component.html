@@ -1,0 +1,43 @@
+<mat-dialog-content class="p-6 w-full h-full flex justify-center items-center">
+  <section class="text-gray-800 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto max-w-screen-xl">
+      <div class="mx-auto flex flex-wrap justify-center align-middle border-solid border-2 rounded-lg border-gray-700 overflow-clip">
+        <img alt="ecommerce" class="lg:w-1/2 w-full h-auto"
+          src="/assets/form-img.jpg">
+        <div class="lg:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 align-middle justify-center">
+          <h2 class="text-purple-900 text-4xl font-bold title-font mb-5">Uniforms'a Kayıt Ol</h2>
+          <div class="relative gap-x-4 flex flex-row flex-wrap">
+            <uf-form-input class="flex-grow" title="İsim" [inputFormControl]="nameFormControl"></uf-form-input>
+            <uf-form-input class="flex-grow" title="Soyisim" [inputFormControl]="surnameFormControl"></uf-form-input>
+          </div>
+          <div class="relative">
+            <uf-email-input [emailFormControl]="emailFormControl"></uf-email-input>
+          </div>
+          <div class="relative">
+            <uf-password-input [passwordFormControl]="passwordFormControl"></uf-password-input>
+            <uf-password-input title="Şifre Tekrar" [passwordFormControl]="repeatpasswordFormControl"></uf-password-input>
+            @if(repeatpasswordFormControl.valid && passwordFormControl.value != repeatpasswordFormControl.value){
+              <p class="text-red-500 text-sm mb-2 ml-2">Girilen şifreler aynı olmalı</p>
+            }
+          </div>
+          <div class="relative mb-4">
+            <uf-checkbox title="" (onCheckedChange)="onCheckboxChange($event)"></uf-checkbox>
+            <a href="">Kullanım Koşullarını</a> ve <a href="">Gizlilik Politaksını</a> okudum ve kabul ediyorum
+          </div>
+          <div class="relative mb-4">
+            <uf-button  
+              title="Kayıt Ol"
+              wfull=true
+              (click)="onSubmit()"
+              [disabled]="!isValid()"
+              >
+            </uf-button>
+          </div>
+          <div class="relative">
+            Zaten hesabınız var mı ? <a href="">Giriş Yap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</mat-dialog-content>
