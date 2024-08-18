@@ -6,6 +6,7 @@ import { MatIcon } from '@angular/material/icon';
 import { UfSignupFormComponent } from '../uf-signup-form/uf-signup-form.component'
 import { UfLoginFormComponent } from '../uf-login-form/uf-login-form.component';
 import {
+  UfGoogleLoginButtonComponent,
   UfFormInputComponent,
   UfButtonComponent,
   UfCheckboxComponent,
@@ -16,7 +17,7 @@ import {
 @Component({
   selector: 'uf-social-login-form',
   standalone: true,
-  imports: [MatIcon, CommonModule, MatDialogModule, UfButtonComponent, UfEmailInputComponent, UfCheckboxComponent, UfPasswordInputComponent, UfFormInputComponent],
+  imports: [MatIcon, CommonModule, MatDialogModule, UfButtonComponent, UfEmailInputComponent, UfCheckboxComponent, UfPasswordInputComponent, UfFormInputComponent, UfGoogleLoginButtonComponent],
   templateUrl: './uf-social-login-form.component.html',
   styleUrl: './uf-social-login-form.component.scss',
 })

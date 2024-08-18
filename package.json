@@ -66,6 +66,7 @@
     "typescript": "~5.5.2"
   },
   "dependencies": {
+    "@abacritt/angularx-social-login": "^2.3.0",
     "@angular/animations": "~18.1.0",
     "@angular/cdk": "^18.1.4",
     "@angular/common": "~18.1.0",
