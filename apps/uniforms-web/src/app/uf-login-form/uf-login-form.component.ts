@@ -28,10 +28,7 @@ export class UfLoginFormComponent {
 
   openSignInModal(): void {
     this.dialog.open(UfSignupFormComponent, {
-      width: '60vw',
       maxWidth: '60vw',
-
-      height: '75vh',
       maxHeight: '75vh',
 
       panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
