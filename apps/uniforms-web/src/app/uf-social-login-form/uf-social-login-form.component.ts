@@ -7,6 +7,7 @@ import { UfSignupFormComponent } from '../uf-signup-form/uf-signup-form.componen
 import { UfLoginFormComponent } from '../uf-login-form/uf-login-form.component';
 import {
   UfGoogleLoginButtonComponent,
+  UfFacebookLoginButtonComponent,
   UfFormInputComponent,
   UfButtonComponent,
   UfCheckboxComponent,
@@ -17,7 +18,7 @@ import {
 @Component({
   selector: 'uf-social-login-form',
   standalone: true,
-  imports: [MatIcon, CommonModule, MatDialogModule, UfButtonComponent, UfEmailInputComponent, UfCheckboxComponent, UfPasswordInputComponent, UfFormInputComponent, UfGoogleLoginButtonComponent],
+  imports: [MatIcon, CommonModule, MatDialogModule, UfButtonComponent, UfEmailInputComponent, UfCheckboxComponent, UfPasswordInputComponent, UfFormInputComponent, UfGoogleLoginButtonComponent, UfFacebookLoginButtonComponent],
   templateUrl: './uf-social-login-form.component.html',
   styleUrl: './uf-social-login-form.component.scss',
 })
@@ -27,10 +28,7 @@ export class UfSocialLoginFormComponent {
 
   openLoginModal(): void {
     this.dialog.open(UfLoginFormComponent, {
-      width: '60vw',
       maxWidth: '60vw',
-
-      height: '75vh',
       maxHeight: '75vh',
 
       panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
@@ -39,10 +37,7 @@ export class UfSocialLoginFormComponent {
 
   openSignInModal(): void {
     this.dialog.open(UfSignupFormComponent, {
-      width: '60vw',
       maxWidth: '60vw',
-
-      height: '75vh',
       maxHeight: '75vh',
 
       panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],

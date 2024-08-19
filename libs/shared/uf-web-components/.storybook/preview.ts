@@ -7,6 +7,7 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
+
 export const decorators = [
   applicationConfig({
     providers: [
@@ -25,7 +26,7 @@ export const decorators = [
             },
             {
               id: FacebookLoginProvider.PROVIDER_ID,
-              provider: new FacebookLoginProvider('clientId')
+              provider: new FacebookLoginProvider('804832595141171')
             }
           ],
           onError: (err) => {
