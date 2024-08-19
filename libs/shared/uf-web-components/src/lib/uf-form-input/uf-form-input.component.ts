@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, input, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -21,6 +21,7 @@ export class UfFormInputComponent {
   @Input() placeholder: string = "";
   @Input() error: string = "Lütfen geçerli bir değer girin!";
   @Input() required: boolean = false;
+  @Input() icon: string | undefined = '';
 
   @Input() inputFormControl: FormControl = new FormControl('', [Validators.required]);
 }
