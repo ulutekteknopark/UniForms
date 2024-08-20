@@ -10,6 +10,8 @@ namespace Uniforms.Uniforms.Api.Repositories
     string projectId;
     FirestoreDb firestoreDb;
 
+    // Kodu çalıştırabilmek için filepath ve projectId kısmını şu anda ortak bir database
+    // olmadığından kişinin kendi oluşturmuş olduğu database doğrultusunda düzenlemesi gerekmektedir.
     public TagRepository()
     {
         string filepath = "C:\\Users\\furka\\OneDrive\\Masaüstü\\UniformsMain\\UniFormsYeni\\UniForms\\apps\\uniforms.api\\uniforms-10a55-ccb60f589255.json";
