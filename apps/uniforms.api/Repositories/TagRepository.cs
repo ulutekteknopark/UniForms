@@ -1,6 +1,6 @@
 using Google.Cloud.Firestore;
 using Uniforms.Uniforms.Api.Interfaces;
-using Uniforms.Uniforms.Api.Models;
+using Uniforms.Models;
 
 namespace Uniforms.Uniforms.Api.Repositories
 {
@@ -14,7 +14,7 @@ namespace Uniforms.Uniforms.Api.Repositories
     // olmadığından kişinin kendi oluşturmuş olduğu database doğrultusunda düzenlemesi gerekmektedir.
     public TagRepository()
     {
-        string filepath = "C:\\Users\\furka\\OneDrive\\Masaüstü\\UniformsMain\\UniFormsYeni\\UniForms\\apps\\uniforms.api\\uniforms-10a55-ccb60f589255.json";
+        string filepath = "C:\\Users\\Oguzhan\\Desktop\\form\\UniForms\\apps\\uniforms.api\\uniforms-10a55-ccb60f589255.json";
         Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", filepath);
         projectId = "uniforms-10a55";
         firestoreDb = FirestoreDb.Create(projectId);

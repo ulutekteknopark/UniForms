@@ -1,4 +1,4 @@
-using Uniforms.Uniforms.Api.Models;
+using Uniforms.Models;
 
 namespace Uniforms.Uniforms.Api.Interfaces
 {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Uniforms.Uniforms.Api.Interfaces;
-using Uniforms.Uniforms.Api.Models;
+using Uniforms.Models;
 
 namespace Uniforms.Uniforms.Api.Controllers
 {
