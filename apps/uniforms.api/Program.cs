@@ -1,4 +1,5 @@
 using System.Reflection;
+using YourNamespace.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Firebase yapılandırmasını al
+var firebaseConfig = builder.Configuration.GetSection("Firebase");
+var projectId = firebaseConfig["ProjectId"];
+var jsonCredentialsPath = firebaseConfig["JsonCredentialsPath"];
+
+// SubmissionRepository bağımlılığını ekle
+builder.Services.AddSingleton(new SubmissionRepository(projectId, jsonCredentialsPath));
 
 builder.Services.AddMvc().AddApplicationPart(
   Assembly.Load(new AssemblyName("Uniforms.Auth.UfAuthApi"))
