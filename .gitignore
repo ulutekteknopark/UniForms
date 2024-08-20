@@ -42,3 +42,6 @@ Thumbs.db
 .nx/workspace-data
 
 .angular
+
+
+apps/uniforms.api/Data/serviceAccountKey.json
