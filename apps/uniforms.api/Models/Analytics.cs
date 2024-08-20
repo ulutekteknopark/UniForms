@@ -1,10 +1,20 @@
-namespace UniForms.Uniforms.Api.Models
+namespace UniForms.Uniforms.Api.Models;
+
+using System.ComponentModel.DataAnnotations;
+using Google.Cloud.Firestore;
+
+[FirestoreData]
+public class Analytics
 {
-    public class Analytics
-    {
-        public Guid FormID { get; set; } 
-        public int TotalResponses { get; set; }
-        public double ResponseRate { get; set; }
-        public TimeSpan AverageCompletionTime { get; set; }
-    }
+    [FirestoreProperty]
+    public string FormID { get; set; }
+
+    [FirestoreProperty]
+    public int TotalResponses { get; set; }
+
+    [FirestoreProperty]
+    public double ResponseRate { get; set; }
+
+    [FirestoreProperty]
+    public double AverageCompletionTime { get; set; }
 }
