@@ -6,6 +6,6 @@ namespace Uniforms.Models {
         // summary
         // The ID of the entity
         [FirestoreProperty]
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

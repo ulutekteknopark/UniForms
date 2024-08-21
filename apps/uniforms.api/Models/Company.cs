@@ -16,7 +16,7 @@ id, Get by id, create, update, delete -> işlemleri yapılması
 
         //summary 
         //CompanyID is the primary key of the Company table
-        public int CompanyID { get; set; }
+        public string? CompanyID { get; set; }
 
         //summary
         //Name is the name of the company

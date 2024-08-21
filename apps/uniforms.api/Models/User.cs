@@ -29,6 +29,6 @@ namespace Uniforms.Models{
         [FirestoreProperty]
         //summary
         //The company ID of the user
-        public int CompanyID { get; set; }
+        public string? CompanyID { get; set; }
     }
 }

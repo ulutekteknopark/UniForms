@@ -6,10 +6,10 @@ namespace Uniforms.Models
     public class Submission
     {
         [FirestoreDocumentId]
-        public int SubmissionID { get; set; }
+        public string SubmissionID { get; set; }
 
         [FirestoreProperty]
-        public int FormID { get; set; }
+        public string FormID { get; set; }
 
         [FirestoreProperty]
         public string? SubmittedBy { get; set; }

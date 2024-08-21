@@ -10,7 +10,7 @@ namespace Uniforms.Models
     public class Form
     {
         [FirestoreProperty]
-        public int FormID { get; set; }
+        public string? FormID { get; set; }
 
         [FirestoreProperty]
         public string? FormTitle { get; set; }
@@ -19,7 +19,7 @@ namespace Uniforms.Models
         public string? Description { get; set; }
 
         [FirestoreProperty]
-        public int OwnerID { get; set; }  // Foreign Key - User
+        public string? OwnerID { get; set; }  // Foreign Key - User
 
         [FirestoreProperty]
         public string? Template { get; set; }

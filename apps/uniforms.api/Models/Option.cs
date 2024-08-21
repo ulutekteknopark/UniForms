@@ -23,6 +23,6 @@ namespace Uniforms.Models
         // summary
         // The question ID of the option
         [FirestoreProperty]
-        public int QuestionID { get; set; }
+        public string? QuestionID { get; set; }
     }
 }

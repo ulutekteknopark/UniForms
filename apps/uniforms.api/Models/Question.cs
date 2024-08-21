@@ -9,7 +9,7 @@ namespace Uniforms.Models
     {
 
         [FirestoreProperty]
-        public int FormID { get; set; }  // Foreign Key - Form
+        public string? FormID { get; set; }  // Foreign Key - Form
 
         [FirestoreProperty]
         public string? QuestionText { get; set; }
