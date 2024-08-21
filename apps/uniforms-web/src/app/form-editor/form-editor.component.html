@@ -1,27 +1,54 @@
-<div class="container py-5 lg:px-20 md:px-10 mx-auto flex">
-  <div class="form-elements flex flex-col basis-1/4 bg-purple-100">
-    <div class="bg-purple-700 text-white text-center p-2">Form Elementleri</div>
-    <div class="element flex flex-row items-center p-2">
-      <div class="icon bg-purple-300 p-2 rounded-full">
-        <mat-icon>edit</mat-icon>
-      </div>
-      <div class="text ml-4">Metin ekle</div>
-      <mat-icon class="cursor-pointer ml-auto" (click)="test()">add</mat-icon>
-    </div>
-    <div class="element flex flex-row items-center p-2">
-      <div class="icon bg-purple-300 p-2 rounded-full">
-        <mat-icon>checklist</mat-icon>
-      </div>
-      <div class="text ml-4">Onay kutuları ekle</div>
-      <mat-icon class="cursor-pointer ml-auto" (click)="test()">add</mat-icon>
-    </div>
-    <div class="element flex flex-row items-center p-2">
-      <div class="icon bg-purple-300 p-2 rounded-full">
-        <mat-icon>format_list_bulleted</mat-icon>
-      </div>
-      <div class="text ml-4">Seçme kutuları ekle</div>
-      <mat-icon class="cursor-pointer ml-auto" (click)="test()">add</mat-icon>
-    </div>
+<div class="flex container mx-auto py-5">
+  <div class="form-elements flex flex-col basis-1/3">
+    <div class="bg-purple-700 text-white text-center p-4">Form Elementleri</div>
+    <uf-form-element-select-button
+      title="Başlık"
+      icon="edit"
+      icon2=""
+      (click)="test()">
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Ad Soyad"
+      icon="account_circle"
+      icon2=""
+      (click)="test()">
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Email"
+      icon="email"
+      icon2=""
+      (click)="test()">
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Adres"
+      icon="location_on"
+      icon2="add"
+      (click)="test()">
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Telefon"
+      icon="mobile_friendly"
+      icon2="add"
+      (click)="test()">
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Tarih"
+      icon="event"
+      icon2="add"
+      (click)="test()">
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Metin"
+      icon="edit_note"
+      icon2="add"
+      (click)="test()">
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Ölçek Değerlendirme"
+      icon="radio_button_checked"
+      icon2="add"
+      (click)="test()">
+    </uf-form-element-select-button>
   </div>
 
   <div class="form-content mx-4 basis-3/4">
