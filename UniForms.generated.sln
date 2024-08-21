@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{9BE8D340-B95F-4119-8C5D-DBD04A4B0DFF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uniforms.Uniforms.Api", "apps\uniforms.api\Uniforms.Uniforms.Api.csproj", "{EA9928EC-7192-4A8C-8DF0-1B0DB4D6CBB6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uniforms.Uniforms.Api.Test", "apps\uniforms.api-test\Uniforms.Uniforms.Api.Test.csproj", "{552FCF77-62A8-4E87-AF22-006933D8CB55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{F0DD3B26-3155-49DB-A92E-0552DC8E2632}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "auth", "auth", "{3FCAB096-FD91-4F72-895C-E9BCCD5403AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uniforms.Auth.UfAuthApi", "libs\auth\uf-auth-api\Uniforms.Auth.UfAuthApi.csproj", "{51577A76-98D9-47C4-B0F9-29540F74E5BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uniforms.Auth.UfAuthApi.Test", "libs\auth\uf-auth-api-test\Uniforms.Auth.UfAuthApi.Test.csproj", "{F3BAD09E-235D-4422-9BBD-31DC4B9AD58E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA9928EC-7192-4A8C-8DF0-1B0DB4D6CBB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9928EC-7192-4A8C-8DF0-1B0DB4D6CBB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9928EC-7192-4A8C-8DF0-1B0DB4D6CBB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9928EC-7192-4A8C-8DF0-1B0DB4D6CBB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{552FCF77-62A8-4E87-AF22-006933D8CB55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{552FCF77-62A8-4E87-AF22-006933D8CB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{552FCF77-62A8-4E87-AF22-006933D8CB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{552FCF77-62A8-4E87-AF22-006933D8CB55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51577A76-98D9-47C4-B0F9-29540F74E5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51577A76-98D9-47C4-B0F9-29540F74E5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51577A76-98D9-47C4-B0F9-29540F74E5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51577A76-98D9-47C4-B0F9-29540F74E5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3BAD09E-235D-4422-9BBD-31DC4B9AD58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3BAD09E-235D-4422-9BBD-31DC4B9AD58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3BAD09E-235D-4422-9BBD-31DC4B9AD58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3BAD09E-235D-4422-9BBD-31DC4B9AD58E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EA9928EC-7192-4A8C-8DF0-1B0DB4D6CBB6} = {9BE8D340-B95F-4119-8C5D-DBD04A4B0DFF}
+		{552FCF77-62A8-4E87-AF22-006933D8CB55} = {9BE8D340-B95F-4119-8C5D-DBD04A4B0DFF}
+		{3FCAB096-FD91-4F72-895C-E9BCCD5403AB} = {F0DD3B26-3155-49DB-A92E-0552DC8E2632}
+		{51577A76-98D9-47C4-B0F9-29540F74E5BA} = {3FCAB096-FD91-4F72-895C-E9BCCD5403AB}
+		{F3BAD09E-235D-4422-9BBD-31DC4B9AD58E} = {3FCAB096-FD91-4F72-895C-E9BCCD5403AB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E8ED19B-36C7-497D-B652-49A48A77785E}
+	EndGlobalSection
+EndGlobal
