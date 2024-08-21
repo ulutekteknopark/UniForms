@@ -1,0 +1,31 @@
+<div class="container py-5 lg:px-20 md:px-10 mx-auto flex">
+  <div class="form-elements flex flex-col basis-1/4 bg-purple-100">
+    <div class="bg-purple-700 text-white text-center p-2">Form Elementleri</div>
+    <div class="element flex flex-row items-center p-2">
+      <div class="icon bg-purple-300 p-2 rounded-full">
+        <mat-icon>edit</mat-icon>
+      </div>
+      <div class="text ml-4">Metin ekle</div>
+      <mat-icon class="cursor-pointer ml-auto" (click)="test()">add</mat-icon>
+    </div>
+    <div class="element flex flex-row items-center p-2">
+      <div class="icon bg-purple-300 p-2 rounded-full">
+        <mat-icon>checklist</mat-icon>
+      </div>
+      <div class="text ml-4">Onay kutuları ekle</div>
+      <mat-icon class="cursor-pointer ml-auto" (click)="test()">add</mat-icon>
+    </div>
+    <div class="element flex flex-row items-center p-2">
+      <div class="icon bg-purple-300 p-2 rounded-full">
+        <mat-icon>format_list_bulleted</mat-icon>
+      </div>
+      <div class="text ml-4">Seçme kutuları ekle</div>
+      <mat-icon class="cursor-pointer ml-auto" (click)="test()">add</mat-icon>
+    </div>
+  </div>
+
+  <div class="form-content mx-4 basis-3/4">
+    <uf-form-input title="Form başlığı"></uf-form-input>
+    <uf-form-input title="Form açıklaması"></uf-form-input>
+  </div>
+</div>
