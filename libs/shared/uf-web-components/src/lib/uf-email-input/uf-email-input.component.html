@@ -1,0 +1,12 @@
+<div class="m-1">
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>E-posta</mat-label>
+    <input type="email" matInput [formControl]="emailFormControl" placeholder="Ör. ram@örnek.com">
+    @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+    <mat-error>Lütfen geçerli bir e-posta adresi girin!</mat-error>
+    }
+    @if (emailFormControl.hasError('required')) {
+    <mat-error>E-posta girmek <strong>gereklidir!</strong></mat-error>
+    }
+  </mat-form-field>
+</div>

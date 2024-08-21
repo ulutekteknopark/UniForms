@@ -12,13 +12,8 @@ export default meta;
 type Story = StoryObj<UfButtonComponent>;
 
 export const Primary: Story = {
-  args: {},
-};
-
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/uf-button works!/gi)).toBeTruthy();
+  args: {
+    title: "Default",
+    wfull: false,
   },
 };

@@ -11,7 +11,8 @@
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "libs/shared/uf-web-components/ng-package.json",
-        "tailwindConfig": "libs/shared/uf-web-components/tailwind.config.js"
+        "tailwindConfig": "libs/shared/uf-web-components/tailwind.config.js",
+        "assets": ["libs/shared/uf-web-components/src/assets"]
       },
       "configurations": {
         "production": {
@@ -39,7 +40,12 @@
         "port": 4400,
         "configDir": "libs/shared/uf-web-components/.storybook",
         "browserTarget": "uf-web-components:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/azure-blue.css",
+          "libs/shared/uf-web-components/.storybook/styles.scss"
+        ],
+        "assets": ["libs/shared/uf-web-components/src/assets"]
       },
       "configurations": {
         "ci": {
@@ -54,7 +60,9 @@
         "outputDir": "dist/storybook/uf-web-components",
         "configDir": "libs/shared/uf-web-components/.storybook",
         "browserTarget": "uf-web-components:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": ["libs/shared/uf-web-components/.storybook/styles.scss"],
+        "assets": ["libs/shared/uf-web-components/src/assets"]
       },
       "configurations": {
         "ci": {

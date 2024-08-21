@@ -1,0 +1,20 @@
+<div class="container py-5 lg:px-20 md:px-10 mx-auto">
+   <uf-form-input 
+        title="Form şablonlarında ara"
+        [inputFormControl]="searchTemplateFormControl"
+        placeholder="Örn: otel rezervasyon formu"
+        icon="search"
+     >
+   </uf-form-input>
+   <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      @for (template of filteredTemplates; track template.id) {
+        <uf-template-preview 
+            [id]="template.id"
+            [previewImage]="template.previewImage"
+            [templateName]="template.templateName"
+            (useTemplateEvent)="useTemplate($event)"
+        >
+        </uf-template-preview>
+      }
+   </div>
+</div>
