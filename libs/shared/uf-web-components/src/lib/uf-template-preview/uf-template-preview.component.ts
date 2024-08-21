@@ -10,9 +10,9 @@ import { UfButtonComponent } from '../uf-button/uf-button.component';
   styleUrl: './uf-template-preview.component.scss',
 })
 export class UfTemplatePreviewComponent {
-  @Input() id : Number | undefined;
-  @Input() previewImage: string | undefined = '';
-  @Input() templateName: string | undefined = '';
+  @Input() id!: number;
+  @Input() previewImage!:string;
+  @Input() templateName!: string;
   
   @Output() useTemplateEvent = new EventEmitter<Number>();
 

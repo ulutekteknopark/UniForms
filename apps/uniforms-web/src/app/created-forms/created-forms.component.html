@@ -1,0 +1,16 @@
+<div class="container py-5 lg:px-20 md:px-10 mx-auto">
+  <div class="my-10">
+    <uf-button title="Yeni form oluştur" wfull="false" (click)="gotoTemplates()"></uf-button>
+  </div>
+  <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    @for (form of forms; track form.id) {
+      <uf-form-preview 
+        [id]="form.id"
+        [formTitle]="form.formTitle"
+        [responseCount]="form.responseCount"
+        (gotoFormEvent)="gotoForm($event)"
+      >
+      </uf-form-preview>
+    }
+  </div>
+</div>
