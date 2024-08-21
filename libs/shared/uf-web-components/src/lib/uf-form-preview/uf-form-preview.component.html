@@ -1,0 +1,13 @@
+<div class="bg-white rounded-lg shadow-lg overflow-hidden max-w-sm w-full">
+    <div class="p-4 text-center">
+        <div class="text-sm font-semibold text-gray-800 mb-4">{{ formTitle }}</div>
+        <div class="text-sm font-semibold text-gray-800 mb-4">
+          @if(responseCount == 0){
+            Henüz yanıt yok
+          }@else {
+            {{ responseCount }} yanıt
+          }
+        </div>
+        <uf-button title="Form detayları" (click)="gotoForm()"></uf-button>
+    </div>
+</div>

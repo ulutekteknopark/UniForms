@@ -13,6 +13,7 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './templates.component.scss',
 })
 export class TemplatesComponent {
+  // TODO: create type interfaces
   templates = [ {
       id: 1,
       previewImage: 'https://via.placeholder.com/400x300',
