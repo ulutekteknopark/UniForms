@@ -6,5 +6,5 @@ import { CreatedFormsComponent } from './created-forms/created-forms.component';
 export const appRoutes: Route[] = [
     { path: '', component: MainPageComponent },
      { path: 'templates', component: TemplatesComponent },
-     { path: 'forms', component: CreatedFormsComponent },
+     { path: 'myforms', component: CreatedFormsComponent },
 ];
