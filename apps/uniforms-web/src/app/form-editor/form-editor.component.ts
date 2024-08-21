@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
+import { MatFabButton } from '@angular/material/button';
 import {
   UfFormInputComponent,
   UfFormElementSelectButtonComponent,
@@ -9,7 +10,7 @@ import {
 @Component({
   selector: 'uf-form-editor',
   standalone: true,
-  imports: [CommonModule, MatIcon, UfFormInputComponent, UfFormElementSelectButtonComponent],
+  imports: [CommonModule, MatFabButton, MatIcon, UfFormInputComponent, UfFormElementSelectButtonComponent],
   templateUrl: './form-editor.component.html',
   styleUrl: './form-editor.component.scss',
 })
