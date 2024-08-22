@@ -5,12 +5,13 @@ import { MatFabButton } from '@angular/material/button';
 import {
   UfFormInputComponent,
   UfFormElementSelectButtonComponent,
+  UfTextareaComponent
 } from '@uniforms/uf-web-components';
 
 @Component({
   selector: 'uf-form-editor',
   standalone: true,
-  imports: [CommonModule, MatFabButton, MatIcon, UfFormInputComponent, UfFormElementSelectButtonComponent],
+  imports: [CommonModule, MatFabButton, MatIcon, UfFormInputComponent, UfFormElementSelectButtonComponent, UfTextareaComponent],
   templateUrl: './form-editor.component.html',
   styleUrl: './form-editor.component.scss',
 })
