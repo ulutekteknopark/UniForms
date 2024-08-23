@@ -1,0 +1,16 @@
+<div class="flex flex-row gap-4 justify-between">
+  <div>{{ word1 }}</div>
+  <div class="flex flex-row justify-center gap-2">
+    <button mat-icon-button
+      [class]="color"
+      *ngFor="let ratingId of ratingArr; index as i"
+      [id]="'star_'+i"
+      (click)="click(i+1)"
+    >
+      <mat-icon>
+        {{ showIcon(i) }}
+      </mat-icon>
+    </button>
+  </div>
+  <div>{{ word2 }}</div>
+</div>

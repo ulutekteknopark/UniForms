@@ -7,38 +7,54 @@
       Soru: {{ question }}
     </div>
     <div>
-      Cevap:
-    </div>
-    <div>
-      @if (type=="title"){
-        title
-      }
-      @else if (type=="name"){
-        name
+      @if (type=="name"){
+        <div class="flex flex-row">
+          <uf-form-input class="w-full" title="Ad"></uf-form-input>
+          <uf-form-input class="w-full" title="Soyad"></uf-form-input>
+        </div>
       }
       @else if (type=="email"){
-        email
+        <div class="flex flex-row">
+          <uf-form-input class="w-full" title="Email"></uf-form-input>
+        </div>
       }
       @else if (type=="address"){
-        address
+        <div class="flex flex-row">
+          <uf-form-input class="w-full" title="Adres"></uf-form-input>
+        </div>
       }
       @else if (type=="phone"){
-        phone
+        <div class="flex flex-row">
+          <uf-form-input class="w-full" title="Telefon"></uf-form-input>
+        </div>
       }
       @else if (type=="date"){
         date
       }
       @else if (type=="text"){
-        text
+        <div class="flex flex-row">
+          <uf-textarea
+            class="w-full"
+            title="Cevap"
+            placeholder="Cevabınızı yazın ..."
+          >
+          </uf-textarea>
+        </div>
       }
       @else if (type=="radio"){
-        radio
+        <div class="flex flex-row">
+
+        </div>
       }
       @else if (type=="check"){
-        check
+        <div class="flex flex-row">
+
+        </div>
       }
       @else if (type=="rate"){
-        rate
+        <div class="flex flex-row">
+          <uf-form-rate-input class="w-full"></uf-form-rate-input>
+        </div>
       }
     </div>
   </div>
