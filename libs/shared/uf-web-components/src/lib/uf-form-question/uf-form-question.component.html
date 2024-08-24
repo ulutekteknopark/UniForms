@@ -3,8 +3,24 @@
     @if (image){
       <img [src]="image" class="w-full object-center">
     }
-    <div>
-      Soru: {{ question }}
+    <div class="flex flex-row justify-between">
+      <div>
+        Soru: {{ question }}
+      </div>
+      <div>
+        @if (editable){
+          @if (position > 0){
+            <button mat-icon-button
+              (click)="changePosition(-1)">
+              <mat-icon>keyboard_arrow_up</mat-icon>
+            </button>
+          }
+          <button mat-icon-button
+            (click)="changePosition(1)">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </button>
+        }
+      </div>
     </div>
     <div>
       @if (type=="name"){
