@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, output, OutputEmitterRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFabButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
@@ -17,16 +17,22 @@ import { UfFormRateInputComponent } from '../uf-rate-input/uf-form-rate-input.co
 export class UfFormQuestionComponent {
   @Input() editable: boolean = false;
 
+  @Input() id: number = 0;
   @Input() image: string = "";
   @Input() question: string = "";
   @Input() type: string = "name";
   @Input() required: boolean = false;
 
+  deleteEvent: OutputEmitterRef<void> = output();
+  editEvent: OutputEmitterRef<void> = output();
+
   edit(){
-    alert("edit question");
+    console.log("emit edit " + this.type);
+    this.editEvent.emit();
   }
 
   delete(){
-    alert("delete question");
+    console.log("emit deletion " + this.type);
+    this.deleteEvent.emit();
   }
 }
