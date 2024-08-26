@@ -5,6 +5,7 @@ import { MatIcon } from '@angular/material/icon';
 import { UfFormRateInputComponent } from '../uf-rate-input/uf-form-rate-input.component';
 import { UfFormInputComponent } from '../uf-form-input/uf-form-input.component';
 import { UfTextareaComponent } from '../uf-textarea/uf-textarea.component';
+import { UfEmailInputComponent } from '../uf-email-input/uf-email-input.component';
 
 interface FormQuestion {
   id: number;
@@ -18,7 +19,8 @@ interface FormQuestion {
   selector: 'uf-form-question',
   templateUrl: './uf-form-question.component.html',
   standalone: true,
-  imports: [CommonModule, MatFabButton, MatIconButton, MatIcon, UfFormRateInputComponent, UfFormInputComponent, UfTextareaComponent],
+  imports: [CommonModule, MatFabButton, MatIconButton, MatIcon, UfFormRateInputComponent,
+     UfFormInputComponent, UfTextareaComponent, UfEmailInputComponent],
   styleUrls: ['./uf-form-question.component.scss'],
 })
 export class UfFormQuestionComponent {

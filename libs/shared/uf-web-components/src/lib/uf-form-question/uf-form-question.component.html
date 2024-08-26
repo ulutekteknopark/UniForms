@@ -1,7 +1,9 @@
 <div class="flex flex-col gap-4 bg-purple-100 rounded shadow mb-4 p-4">
   <div class="flex flex-col gap-4 w-full justify-start">
     <div class="flex flex-row justify-between">
-      <div *ngIf="question.type != 'title'">Soru: {{ question.text }}</div>
+      <div *ngIf="!['title', 'email', 'phone', 'name'].includes(question.type)">
+        Soru: {{ question.text }}
+      </div>
       <div class="ml-auto">
         @if (question.editable){ @if (question.position > 0){
         <button mat-icon-button (click)="onMoveUp()">
@@ -24,7 +26,7 @@
       </div>
       } @else if (question.type=="email"){
       <div class="flex flex-row">
-        <uf-form-input class="w-full" title="Email"></uf-form-input>
+        <uf-email-input class="w-full"></uf-email-input>
       </div>
       } @else if (question.type=="address"){
       <div class="flex flex-row">
