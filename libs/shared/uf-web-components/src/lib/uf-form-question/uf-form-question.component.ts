@@ -1,44 +1,46 @@
-import { Component, Input, Output, output, OutputEmitterRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFabButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-
+import { UfFormRateInputComponent } from '../uf-rate-input/uf-form-rate-input.component';
 import { UfFormInputComponent } from '../uf-form-input/uf-form-input.component';
 import { UfTextareaComponent } from '../uf-textarea/uf-textarea.component';
-import { UfFormRateInputComponent } from '../uf-rate-input/uf-form-rate-input.component';
+
+interface FormQuestion {
+  id: number;
+  text: string
+  position: number;
+  type: string;
+  editable: boolean;
+}
 
 @Component({
   selector: 'uf-form-question',
+  templateUrl: './uf-form-question.component.html',
   standalone: true,
   imports: [CommonModule, MatFabButton, MatIconButton, MatIcon, UfFormRateInputComponent, UfFormInputComponent, UfTextareaComponent],
-  templateUrl: './uf-form-question.component.html',
-  styleUrl: './uf-form-question.component.scss',
+  styleUrls: ['./uf-form-question.component.scss'],
 })
 export class UfFormQuestionComponent {
-  @Input() editable: boolean = false;
+  @Input() question!: FormQuestion;
 
-  @Input() id: number = -1;
-  @Input() position: number = -1;
-  @Input() image: string = "";
-  @Input() question: string = "";
-  @Input() type: string = "name";
-  @Input() required: boolean = false;
+  @Output() edit = new EventEmitter<void>();
+  @Output() changePosition = new EventEmitter<number>();
+  @Output() delete = new EventEmitter<void>();
 
-  @Output() direction: number = 0;
-
-  deleteEvent: OutputEmitterRef<void> = output();
-  editEvent: OutputEmitterRef<void> = output();
-  changePositionEvent: OutputEmitterRef<number> = output();
-
-  changePosition(direction: number){
-    this.changePositionEvent.emit(direction);
+  onEdit() {
+    this.edit.emit();
   }
 
-  edit(){
-    this.editEvent.emit();
+  onMoveUp() {
+    this.changePosition.emit(-1);
   }
 
-  delete(){
-    this.deleteEvent.emit();
+  onMoveDown() {
+    this.changePosition.emit(1);
+  }
+
+  onDelete() {
+    this.delete.emit();
   }
 }

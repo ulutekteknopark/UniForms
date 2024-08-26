@@ -1,87 +1,68 @@
 <div class="flex flex-col gap-4 bg-purple-100 rounded shadow mb-4 p-4">
   <div class="flex flex-col gap-4 w-full justify-start">
-    @if (image){
-      <img [src]="image" class="w-full object-center">
-    }
     <div class="flex flex-row justify-between">
+      <div>Soru: {{ question.text }}</div>
       <div>
-        Soru: {{ question }}
-      </div>
-      <div>
-        @if (editable){
-          @if (position > 0){
-            <button mat-icon-button
-              (click)="changePosition(-1)">
-              <mat-icon>keyboard_arrow_up</mat-icon>
-            </button>
-          }
-          <button mat-icon-button
-            (click)="changePosition(1)">
-            <mat-icon>keyboard_arrow_down</mat-icon>
-          </button>
+        @if (question.editable){ @if (question.position > 0){
+        <button mat-icon-button (click)="onMoveUp()">
+          <mat-icon>keyboard_arrow_up</mat-icon>
+        </button>
+        }
+        <button mat-icon-button (click)="onMoveDown()">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
         }
       </div>
     </div>
     <div>
-      @if (type=="name"){
-        <div class="flex flex-row">
-          <uf-form-input class="w-full" title="Ad"></uf-form-input>
-          <uf-form-input class="w-full" title="Soyad"></uf-form-input>
-        </div>
-      }
-      @else if (type=="email"){
-        <div class="flex flex-row">
-          <uf-form-input class="w-full" title="Email"></uf-form-input>
-        </div>
-      }
-      @else if (type=="address"){
-        <div class="flex flex-row">
-          <uf-form-input class="w-full" title="Adres"></uf-form-input>
-        </div>
-      }
-      @else if (type=="phone"){
-        <div class="flex flex-row">
-          <uf-form-input class="w-full" title="Telefon"></uf-form-input>
-        </div>
-      }
-      @else if (type=="date"){
-        date
-      }
-      @else if (type=="text"){
-        <div class="flex flex-row">
-          <uf-textarea
-            class="w-full"
-            title="Cevap"
-            placeholder="Cevabınızı yazın ..."
-          >
-          </uf-textarea>
-        </div>
-      }
-      @else if (type=="radio"){
-        <div class="flex flex-row">
-
-        </div>
-      }
-      @else if (type=="check"){
-        <div class="flex flex-row">
-
-        </div>
-      }
-      @else if (type=="rate"){
-        <div class="flex flex-row">
-          <uf-form-rate-input class="w-full"></uf-form-rate-input>
-        </div>
+      @if (question.type=="name"){
+      <div class="flex flex-row">
+        <uf-form-input class="w-full" title="Ad"></uf-form-input>
+        <uf-form-input class="w-full" title="Soyad"></uf-form-input>
+      </div>
+      } @else if (question.type=="email"){
+      <div class="flex flex-row">
+        <uf-form-input class="w-full" title="Email"></uf-form-input>
+      </div>
+      } @else if (question.type=="address"){
+      <div class="flex flex-row">
+        <uf-form-input class="w-full" title="Adres"></uf-form-input>
+      </div>
+      } @else if (question.type=="phone"){
+      <div class="flex flex-row">
+        <uf-form-input class="w-full" title="Telefon"></uf-form-input>
+      </div>
+      } @else if (question.type=="date"){ date } @else if
+      (question.type=="text"){
+      <div class="flex flex-row">
+        <uf-textarea
+          class="w-full"
+          title="Cevap"
+          placeholder="Cevabınızı yazın ..."
+        >
+        </uf-textarea>
+      </div>
+      } @else if (question.type=="radio"){
+      <div class="flex flex-row"></div>
+      } @else if (question.type=="check"){
+      <div class="flex flex-row"></div>
+      } @else if (question.type=="rate"){
+      <div class="flex flex-row">
+        <uf-form-rate-input class="w-full"></uf-form-rate-input>
+      </div>
       }
     </div>
   </div>
-  @if (editable){
-    <div class="flex flex-row gap-4 w-full pt-4 justify-end border-t border-solid border-purple-200">
-      <button mat-fab (click)="edit()">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-fab (click)="delete()">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
+  @if (question.editable){
+  <div
+    class="flex flex-row gap-4 w-full pt-4 justify-end border-t border-solid border-purple-200"
+  >
+    <button mat-fab (click)="onEdit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-fab (click)="onDelete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
   }
 </div>
