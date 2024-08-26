@@ -26,7 +26,10 @@
       </div>
       } @else if (question.type=="email"){
       <div class="flex flex-row">
-        <uf-email-input class="w-full"></uf-email-input>
+        <uf-email-input
+          [emailFormControl]="formControl"
+          class="w-full"
+        ></uf-email-input>
       </div>
       } @else if (question.type=="address"){
       <div class="flex flex-row">
@@ -34,12 +37,23 @@
       </div>
       } @else if (question.type=="phone"){
       <div class="flex flex-row">
-        <uf-form-input class="w-full" title="Telefon"></uf-form-input>
+        <uf-form-input
+          [inputFormControl]="formControl"
+          class="w-full"
+          title="Telefon"
+        ></uf-form-input>
       </div>
-      } @else if (question.type=="date"){ date } @else if
-      (question.type=="text"){
+      } @else if (question.type=="date"){
+      <div class="flex flex-row">
+        <uf-date-input
+          [dateFormControl]="formControl"
+          class="w-full"
+        ></uf-date-input>
+      </div>
+      } @else if (question.type=="text"){
       <div class="flex flex-row">
         <uf-textarea
+          [inputFormControl]="formControl"
           class="w-full"
           title="Cevap"
           placeholder="Cevabınızı yazın ..."
