@@ -5,7 +5,7 @@
       title="Başlık"
       icon="edit"
       icon2="add"
-      (click)="addQuestion('title')"
+      (click)="openAddTitleDialog()"
     >
     </uf-form-element-select-button>
     <uf-form-element-select-button
@@ -80,14 +80,14 @@
       <div class="question-container">
         <uf-form-question
           [question]="question"
-          (edit)="editQuestion(question.id)"
+          (edit)="editQuestion(question)"
           (changePosition)="changePosition(question.id, $event)"
           (delete)="deleteQuestion(question.id)"
         >
         </uf-form-question>
       </div>
       }
-      <div class="text-purple-300 text-center p-4 mb-2">
+      <div class="text-purple-300 text-center p-4 mb-4">
         Uniforms Tarafından Hazırlanmıştır.
       </div>
       <button mat-fab extended (click)="save()">

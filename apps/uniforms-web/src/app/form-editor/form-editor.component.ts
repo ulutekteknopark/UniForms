@@ -5,6 +5,8 @@ import { Component } from '@angular/core';
 
 import { UfFormInputComponent, UfFormQuestionComponent, UfTextareaComponent } from '@uniforms/uf-web-components';
 import { UfFormElementSelectButtonComponent } from '@uniforms/uf-web-components';
+import { AddTitleDialogComponent } from '../add-title-dialog/add-title-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 interface FormQuestion {
   id: number;
@@ -27,19 +29,23 @@ export class FormEditorComponent {
   questions: FormQuestion[] = [];
   questionCounter: number = 0;
 
-  addQuestion(type: string) {
+  constructor(public dialog: MatDialog) { }
+
+  addQuestion(type: string, text: string = ' ', editable: boolean = true) {
     const newQuestion: FormQuestion = {
       id: ++this.questionCounter,
-      text: '',
+      text: text,
       position: this.questions.length,
       type: type,
-      editable: true,
+      editable: editable,
     };
     this.questions.push(newQuestion);
   }
 
-  editQuestion(questionId: number) {
-    alert(`edit: ${questionId}`);
+  editQuestion(question: FormQuestion) {
+    if(question.type == 'title'){
+      this.openEditTitleDialog(question);
+    }
   }
 
   changePosition(questionId: number, direction: number) {
@@ -57,6 +63,45 @@ export class FormEditorComponent {
     this.questions = this.questions.filter(q => q.id !== questionId);
     this.questions.forEach((q, i) => (q.position = i));
   }
+
+  openAddTitleDialog(): void {
+    const dialogRef = this.dialog.open(AddTitleDialogComponent, {
+      data: {
+        isEditing: false,
+      },
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      width: '30vw', // Set the desired width here
+      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
+      backdropClass: 'backdrop-blur-sm',
+    });
+
+    dialogRef.componentInstance.addTitleEvent.subscribe((title: string) => {
+      this.addQuestion('title', title);
+    });
+  }
+
+  openEditTitleDialog(question: FormQuestion): void {
+    const dialogRef = this.dialog.open(AddTitleDialogComponent, {
+      data: {
+        isEditing: true,
+        id: question.id,
+        text: question.text 
+      },
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      width: '30vw', // Set the desired width here
+      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
+      backdropClass: 'backdrop-blur-sm',
+    });
+
+    dialogRef.componentInstance.addTitleEvent.subscribe((title: string) => {
+      let filteredQuestion = this.questions.filter(q => q.id === question.id)[0].text = title;
+      console.log(filteredQuestion);
+    });
+
+  }
+
 
   save() {
     alert("save()");

@@ -1,8 +1,8 @@
 <div class="flex flex-col gap-4 bg-purple-100 rounded shadow mb-4 p-4">
   <div class="flex flex-col gap-4 w-full justify-start">
     <div class="flex flex-row justify-between">
-      <div>Soru: {{ question.text }}</div>
-      <div>
+      <div *ngIf="question.type != 'title'">Soru: {{ question.text }}</div>
+      <div class="ml-auto">
         @if (question.editable){ @if (question.position > 0){
         <button mat-icon-button (click)="onMoveUp()">
           <mat-icon>keyboard_arrow_up</mat-icon>
@@ -15,7 +15,9 @@
       </div>
     </div>
     <div>
-      @if (question.type=="name"){
+      @if(question.type == 'title'){
+      <h2>{{ question.text }}</h2>
+      } @if (question.type=="name"){
       <div class="flex flex-row">
         <uf-form-input class="w-full" title="Ad"></uf-form-input>
         <uf-form-input class="w-full" title="Soyad"></uf-form-input>
