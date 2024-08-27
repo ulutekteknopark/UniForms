@@ -8,6 +8,7 @@ import { UfTextareaComponent } from '../uf-textarea/uf-textarea.component';
 import { UfEmailInputComponent } from '../uf-email-input/uf-email-input.component';
 import { UfDateInputComponent } from '../uf-date-input/uf-date-input.component';
 import { FormControl, Validators } from '@angular/forms';
+import { UfPhoneInputComponent } from '../uf-phone-input/uf-phone-input.component';
 
 interface FormQuestion {
   id: number;
@@ -31,7 +32,8 @@ interface FormQuestion {
     UfFormInputComponent,
     UfTextareaComponent,
     UfEmailInputComponent,
-    UfDateInputComponent
+    UfDateInputComponent,
+    UfPhoneInputComponent
   ],
   styleUrls: ['./uf-form-question.component.scss'],
 })

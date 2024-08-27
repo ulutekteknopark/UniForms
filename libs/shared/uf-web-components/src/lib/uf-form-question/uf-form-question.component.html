@@ -37,11 +37,10 @@
       </div>
       } @else if (question.type=="phone"){
       <div class="flex flex-row">
-        <uf-form-input
-          [inputFormControl]="formControl"
+        <uf-phone-input
+          [phoneFormControl]="formControl"
           class="w-full"
-          title="Telefon"
-        ></uf-form-input>
+        ></uf-phone-input>
       </div>
       } @else if (question.type=="date"){
       <div class="flex flex-row">
