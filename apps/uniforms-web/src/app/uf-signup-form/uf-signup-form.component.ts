@@ -31,6 +31,7 @@ export class UfSignupFormComponent {
   constructor(public dialog: MatDialog) { }
 
   onSubmit(): void {
+window.alert("ceyar")
     if(this.isValid()){
       console.log(`
         Submitting:
