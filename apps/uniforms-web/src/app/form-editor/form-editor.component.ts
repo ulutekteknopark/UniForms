@@ -3,21 +3,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Component } from '@angular/core';
 
-import { UfFormInputComponent, UfFormQuestionComponent, UfTextareaComponent } from '@uniforms/uf-web-components';
-import { UfFormElementSelectButtonComponent } from '@uniforms/uf-web-components';
 import { AddTitleDialogComponent } from '../add-title-dialog/add-title-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddDateDialogComponent } from '../add-date-dialog/add-date-dialog.component';
-
-interface FormQuestion {
-  id: number;
-  text: string;
-  required: boolean;
-  
-  position: number;
-  type: string;
-  editable: boolean;
-}
+import {
+  UfFormElementSelectButtonComponent,
+  UfFormInputComponent,
+  UfFormQuestionComponent,
+  UfTextareaComponent,
+  FormQuestion,
+} from '@uniforms/uf-web-components';
 
 @Component({
   selector: 'uf-form-editor',
@@ -39,7 +34,7 @@ export class FormEditorComponent {
       id: ++this.questionCounter,
       text: text,
       required: required,
-      
+
       position: this.questions.length,
       type: type,
       editable: editable,
@@ -75,7 +70,7 @@ export class FormEditorComponent {
     this.questions.forEach((q, i) => (q.position = i));
   }
 
-  // TODO: organize similar functions 
+  // TODO: organize similar functions
 
   openAddTitleDialog(): void {
     const dialogRef = this.dialog.open(AddTitleDialogComponent, {
@@ -99,7 +94,7 @@ export class FormEditorComponent {
       data: {
         isEditing: true,
         id: question.id,
-        text: question.text 
+        text: question.text
       },
       maxWidth: '100vw',
       maxHeight: '100vh',

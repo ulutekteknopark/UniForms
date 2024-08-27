@@ -9,13 +9,16 @@ import { UfEmailInputComponent } from '../uf-email-input/uf-email-input.componen
 import { UfDateInputComponent } from '../uf-date-input/uf-date-input.component';
 import { FormControl, Validators } from '@angular/forms';
 
-interface FormQuestion {
+export interface FormQuestion {
   id: number;
-  text: string;
-  required: boolean;
-  position: number;
   type: string;
-  editable: boolean;
+  required: boolean;
+  position: number; // sorunun anketteki sırası
+  editable: boolean; // soru düzenlenebilir mi ? sadece editörde true olmalı
+
+  text: string; // soru
+  choices?: object; // soru şıkları
+  answers?: object;// kullanıcının verdiği cevaplar
 }
 
 @Component({
@@ -52,7 +55,7 @@ export class UfFormQuestionComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['required']) {
       console.log(this.required);
-      
+
       this.updateValidators();
     }
   }
