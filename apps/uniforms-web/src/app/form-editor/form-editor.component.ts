@@ -14,6 +14,14 @@ import {
   FormQuestion,
 } from '@uniforms/uf-web-components';
 
+const ModalStyle = {
+  maxWidth: '100vw',
+  maxHeight: '100vh',
+  width: '30vw', // Set the desired width here
+  panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
+  backdropClass: 'backdrop-blur-sm',
+}
+
 @Component({
   selector: 'uf-form-editor',
   standalone: true,
@@ -77,11 +85,7 @@ export class FormEditorComponent {
       data: {
         isEditing: false,
       },
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      width: '30vw', // Set the desired width here
-      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
-      backdropClass: 'backdrop-blur-sm',
+      ...ModalStyle,
     });
 
     dialogRef.componentInstance.addTitleEvent.subscribe((title: string) => {
@@ -96,11 +100,7 @@ export class FormEditorComponent {
         id: question.id,
         text: question.text
       },
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      width: '30vw', // Set the desired width here
-      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
-      backdropClass: 'backdrop-blur-sm',
+      ...ModalStyle,
     });
 
     dialogRef.componentInstance.addTitleEvent.subscribe((title: string) => {
@@ -113,11 +113,7 @@ export class FormEditorComponent {
       data: {
         isEditing: false,
       },
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      width: '30vw', // Set the desired width here
-      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
-      backdropClass: 'backdrop-blur-sm',
+      ...ModalStyle,
     });
 
     dialogRef.componentInstance.addDateEvent.subscribe((eventData) => {
@@ -133,11 +129,7 @@ export class FormEditorComponent {
         text: question.text,
         required: question.required,
       },
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      width: '30vw', // Set the desired width here
-      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
-      backdropClass: 'backdrop-blur-sm',
+      ...ModalStyle
     });
 
     dialogRef.componentInstance.addDateEvent.subscribe((eventData) => {
