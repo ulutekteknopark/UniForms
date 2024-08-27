@@ -7,10 +7,13 @@ import { UfFormInputComponent, UfFormQuestionComponent, UfTextareaComponent } fr
 import { UfFormElementSelectButtonComponent } from '@uniforms/uf-web-components';
 import { AddTitleDialogComponent } from '../add-title-dialog/add-title-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AddDateDialogComponent } from '../add-date-dialog/add-date-dialog.component';
 
 interface FormQuestion {
   id: number;
-  text: string
+  text: string;
+  required: boolean;
+  
   position: number;
   type: string;
   editable: boolean;
@@ -31,20 +34,25 @@ export class FormEditorComponent {
 
   constructor(public dialog: MatDialog) { }
 
-  addQuestion(type: string, text: string = ' ', editable: boolean = true) {
+  addQuestion(type: string, text: string = ' ', editable: boolean = true, required: boolean = true) {
     const newQuestion: FormQuestion = {
       id: ++this.questionCounter,
       text: text,
+      required: required,
+      
       position: this.questions.length,
       type: type,
       editable: editable,
     };
+
     this.questions.push(newQuestion);
   }
 
   editQuestion(question: FormQuestion) {
     if(question.type == 'title'){
       this.openEditTitleDialog(question);
+    }else if(question.type == 'date'){
+      this.openEditDateDialog(question);
     }
   }
 
@@ -66,6 +74,8 @@ export class FormEditorComponent {
     this.questions = this.questions.filter(q => q.id !== questionId);
     this.questions.forEach((q, i) => (q.position = i));
   }
+
+  // TODO: organize similar functions 
 
   openAddTitleDialog(): void {
     const dialogRef = this.dialog.open(AddTitleDialogComponent, {
@@ -100,11 +110,47 @@ export class FormEditorComponent {
 
     dialogRef.componentInstance.addTitleEvent.subscribe((title: string) => {
       let filteredQuestion = this.questions.filter(q => q.id === question.id)[0].text = title;
-      console.log(filteredQuestion);
     });
-
   }
 
+  openAddDateDialog(): void {
+    const dialogRef = this.dialog.open(AddDateDialogComponent, {
+      data: {
+        isEditing: false,
+      },
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      width: '30vw', // Set the desired width here
+      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
+      backdropClass: 'backdrop-blur-sm',
+    });
+
+    dialogRef.componentInstance.addDateEvent.subscribe((eventData) => {
+      this.addQuestion('date', eventData.title, true, eventData.required);
+    });
+  }
+
+  openEditDateDialog(question: FormQuestion): void {
+    const dialogRef = this.dialog.open(AddDateDialogComponent, {
+      data: {
+        isEditing: true,
+        id: question.id,
+        text: question.text,
+        required: question.required,
+      },
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      width: '30vw', // Set the desired width here
+      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
+      backdropClass: 'backdrop-blur-sm',
+    });
+
+    dialogRef.componentInstance.addDateEvent.subscribe((eventData) => {
+      let filteredQuestion = this.questions.filter(q => q.id === question.id)[0];
+      filteredQuestion.required = eventData.required;
+      filteredQuestion.text = eventData.title;
+    });
+  }
 
   save() {
     alert("save()");
