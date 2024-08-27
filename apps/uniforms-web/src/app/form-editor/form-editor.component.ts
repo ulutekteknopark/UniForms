@@ -56,6 +56,9 @@ export class FormEditorComponent {
       const temp = this.questions[newIndex];
       this.questions[newIndex] = this.questions[index];
       this.questions[index] = temp;
+
+      this.questions[newIndex].position = newIndex;
+      this.questions[index].position = index;
     }
   }
 
