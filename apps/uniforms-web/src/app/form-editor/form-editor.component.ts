@@ -8,6 +8,7 @@ import { UfFormElementSelectButtonComponent } from '@uniforms/uf-web-components'
 import { AddTitleDialogComponent } from '../add-title-dialog/add-title-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddDateDialogComponent } from '../add-date-dialog/add-date-dialog.component';
+import { AddTextfieldDialogComponent } from '../add-textfield-dialog/add-textfield-dialog.component';
 
 interface FormQuestion {
   id: number;
@@ -23,7 +24,7 @@ interface FormQuestion {
   selector: 'uf-form-editor',
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatIconModule, UfFormQuestionComponent, UfFormElementSelectButtonComponent,
-    UfFormInputComponent, UfTextareaComponent
+    UfFormInputComponent, UfTextareaComponent, UfFormInputComponent
   ],
   templateUrl: './form-editor.component.html',
   styleUrls: ['./form-editor.component.scss'],
@@ -53,6 +54,8 @@ export class FormEditorComponent {
       this.openEditTitleDialog(question);
     }else if(question.type == 'date'){
       this.openEditDateDialog(question);
+    }else if(question.type == 'text'){
+      this.openEditTextfieldDialog(question)
     }
   }
 
@@ -151,6 +154,47 @@ export class FormEditorComponent {
       filteredQuestion.text = eventData.title;
     });
   }
+
+
+  openAddTextfieldDialog(): void {
+    const dialogRef = this.dialog.open(AddTextfieldDialogComponent, {
+      data: {
+        isEditing: false,
+      },
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      width: '30vw', // Set the desired width here
+      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
+      backdropClass: 'backdrop-blur-sm',
+    });
+
+    dialogRef.componentInstance.addTextfieldEvent.subscribe((eventData) => {
+      this.addQuestion('text', eventData.title, true, eventData.required);
+    });
+  }
+
+  openEditTextfieldDialog(question: FormQuestion): void {
+    const dialogRef = this.dialog.open(AddTextfieldDialogComponent, {
+      data: {
+        isEditing: true,
+        id: question.id,
+        text: question.text,
+        required: question.required,
+      },
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      width: '30vw', // Set the desired width here
+      panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
+      backdropClass: 'backdrop-blur-sm',
+    });
+
+    dialogRef.componentInstance.addTextfieldEvent.subscribe((eventData) => {
+      let filteredQuestion = this.questions.filter(q => q.id === question.id)[0];
+      filteredQuestion.required = eventData.required;
+      filteredQuestion.text = eventData.title;
+    });
+  }
+
 
   save() {
     alert("save()");

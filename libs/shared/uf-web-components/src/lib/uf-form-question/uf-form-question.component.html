@@ -51,13 +51,12 @@
       </div>
       } @else if (question.type=="text"){
       <div class="flex flex-row">
-        <uf-textarea
+        <uf-form-input
           [inputFormControl]="formControl"
           class="w-full"
-          title="Cevap"
-          placeholder="Cevabınızı yazın ..."
-        >
-        </uf-textarea>
+          title="cevap"
+          placeholder="cevabınız yazın"
+        ></uf-form-input>
       </div>
       } @else if (question.type=="radio"){
       <div class="flex flex-row"></div>
