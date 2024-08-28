@@ -17,7 +17,7 @@ export interface FormQuestion {
   editable: boolean; // soru düzenlenebilir mi ? sadece editörde true olmalı
 
   text: string; // soru
-  choices?: object; // soru şıkları
+  choices: object; // soru şıkları
   answers?: object;// kullanıcının verdiği cevaplar
 }
 

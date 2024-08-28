@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 import { AddTitleDialogComponent } from '../add-title-dialog/add-title-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
 import { AddDateDialogComponent } from '../add-date-dialog/add-date-dialog.component';
+import { AddRateDialogComponent } from '../add-rate-dialog/add-rate-dialog.component';
 import {
   UfFormElementSelectButtonComponent,
   UfFormInputComponent,
@@ -37,7 +38,7 @@ export class FormEditorComponent {
 
   constructor(public dialog: MatDialog) { }
 
-  addQuestion(type: string, text: string = ' ', editable: boolean = true, required: boolean = true) {
+  addQuestion(type: string, text: string = ' ', editable: boolean = true, required: boolean = true, choices: object = {}) {
     const newQuestion: FormQuestion = {
       id: ++this.questionCounter,
       text: text,
@@ -46,6 +47,8 @@ export class FormEditorComponent {
       position: this.questions.length,
       type: type,
       editable: editable,
+
+      choices: choices,
     };
 
     this.questions.push(newQuestion);
@@ -56,6 +59,8 @@ export class FormEditorComponent {
       this.openEditTitleDialog(question);
     }else if(question.type == 'date'){
       this.openEditDateDialog(question);
+    }else if(question.type == 'rate'){
+      this.openEditRateDialog(question);
     }
   }
 
@@ -138,6 +143,42 @@ export class FormEditorComponent {
       filteredQuestion.text = eventData.title;
     });
   }
+
+  openAddRateDialog(): void {
+    const dialogRef = this.dialog.open(AddRateDialogComponent, {
+      data: {
+        isEditing: false,
+      },
+      ...ModalStyle,
+      width: '60vw',
+    });
+
+    dialogRef.componentInstance.addRateEvent.subscribe((eventData) => {
+      this.addQuestion('rate', eventData.title, true, eventData.required, eventData.choices);
+    });
+  }
+
+  openEditRateDialog(question: FormQuestion): void {
+    const dialogRef = this.dialog.open(AddRateDialogComponent, {
+      data: {
+        isEditing: true,
+        id: question.id,
+        text: question.text,
+        choices: question.choices,
+        required: question.required,
+      },
+      ...ModalStyle,
+      width: '60vw',
+    });
+
+    dialogRef.componentInstance.addRateEvent.subscribe((eventData) => {
+      let filteredQuestion = this.questions.filter(q => q.id === question.id)[0];
+      filteredQuestion.required = eventData.required;
+      filteredQuestion.text = eventData.title;
+      filteredQuestion.choices = eventData.choices;
+    });
+  }
+
 
   save() {
     alert("save()");
