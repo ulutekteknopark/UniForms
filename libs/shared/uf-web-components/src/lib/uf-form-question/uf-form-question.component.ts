@@ -2,12 +2,14 @@ import { Component, EventEmitter, Input, Output, OnInit, OnChanges, SimpleChange
 import { CommonModule } from '@angular/common';
 import { MatFabButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { FormControl, Validators } from '@angular/forms';
+
 import { UfFormRateInputComponent } from '../uf-rate-input/uf-form-rate-input.component';
 import { UfFormInputComponent } from '../uf-form-input/uf-form-input.component';
 import { UfTextareaComponent } from '../uf-textarea/uf-textarea.component';
 import { UfEmailInputComponent } from '../uf-email-input/uf-email-input.component';
 import { UfDateInputComponent } from '../uf-date-input/uf-date-input.component';
-import { FormControl, Validators } from '@angular/forms';
+import { UfFormAddressComponent } from '../uf-form-address/uf-form-address.component';
 
 export interface FormQuestion {
   id: number;
@@ -34,7 +36,8 @@ export interface FormQuestion {
     UfFormInputComponent,
     UfTextareaComponent,
     UfEmailInputComponent,
-    UfDateInputComponent
+    UfDateInputComponent,
+    UfFormAddressComponent,
   ],
   styleUrls: ['./uf-form-question.component.scss'],
 })

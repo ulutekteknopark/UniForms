@@ -33,7 +33,10 @@
       </div>
       } @else if (question.type=="address"){
       <div class="flex flex-row">
-        <uf-form-input class="w-full" title="Adres"></uf-form-input>
+        <uf-form-address
+          [choices]="question.choices"
+          class="w-full"
+        ></uf-form-address>
       </div>
       } @else if (question.type=="phone"){
       <div class="flex flex-row">

@@ -14,6 +14,7 @@ import {
   UfTextareaComponent,
   FormQuestion,
 } from '@uniforms/uf-web-components';
+import { AddAddressDialogComponent } from '../add-address-dialog/add-address-dialog.component';
 
 const ModalStyle = {
   maxWidth: '100vw',
@@ -61,6 +62,8 @@ export class FormEditorComponent {
       this.openEditDateDialog(question);
     }else if(question.type == 'rate'){
       this.openEditRateDialog(question);
+    }else if(question.type == 'address'){
+      this.openEditAddressDialog(question);
     }
   }
 
@@ -179,6 +182,38 @@ export class FormEditorComponent {
     });
   }
 
+  openAddAddressDialog(): void {
+    const dialogRef = this.dialog.open(AddAddressDialogComponent, {
+      data: {
+        isEditing: false,
+      },
+      ...ModalStyle,
+    });
+
+    dialogRef.componentInstance.addAddressEvent.subscribe((eventData) => {
+      this.addQuestion('address', eventData.title, true, eventData.required, eventData.choices);
+    });
+  }
+
+  openEditAddressDialog(question: FormQuestion): void {
+    const dialogRef = this.dialog.open(AddAddressDialogComponent, {
+      data: {
+        isEditing: true,
+        id: question.id,
+        text: question.text,
+        choices: question.choices,
+        required: question.required,
+      },
+      ...ModalStyle,
+    });
+
+    dialogRef.componentInstance.addAddressEvent.subscribe((eventData) => {
+      let filteredQuestion = this.questions.filter(q => q.id === question.id)[0];
+      filteredQuestion.required = eventData.required;
+      filteredQuestion.text = eventData.title;
+      filteredQuestion.choices = eventData.choices;
+    });
+  }
 
   save() {
     alert("save()");

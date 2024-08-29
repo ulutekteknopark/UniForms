@@ -27,3 +27,5 @@ export * from './lib/uf-form-question/uf-form-question.component';
 export * from './lib/uf-rate-input/uf-form-rate-input.component';
 
 export * from './lib/uf-date-input/uf-date-input.component';
+
+export * from './lib/uf-form-address/uf-form-address.component';
