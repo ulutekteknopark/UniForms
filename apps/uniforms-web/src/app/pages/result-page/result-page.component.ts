@@ -12,7 +12,6 @@ Chart.register(...registerables);
   styleUrls: ['./result-page.component.css'],
 })
 export class ResultPageComponent implements OnInit {
-
   public config: any = {
     type: 'pie',
     data: {
@@ -30,16 +29,32 @@ export class ResultPageComponent implements OnInit {
         },
       ],
     },
-    options: {responsive: true,
+    options: {
+      responsive: true,
       maintainAspectRatio: false,
     },
   };
 
-  // chart değişkenini tanımlıyorum
   chart!: Chart;
 
+  responses = [
+    { question: 'What is your name?', answer: 'John Doe' },
+    { question: 'How old are you?', answer: '28' },
+    // Diğer yanıtlar
+  ];
+
+  selectedStep = 'step1';
+
   ngOnInit(): void {
-    // Grafiği oluşturup, chart değişkenine atıyorum
-    this.chart = new Chart('MyChart', this.config);
+    this.showStep(this.selectedStep);
+  }
+
+  showStep(step: string) {
+    this.selectedStep = step;
+    if (step === 'step1') {
+      setTimeout(() => {
+        this.chart = new Chart('MyChart', this.config);
+      }, 0);
+    }
   }
 }

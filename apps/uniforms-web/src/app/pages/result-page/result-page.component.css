@@ -1,0 +1,26 @@
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  table {
+    margin: auto;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
