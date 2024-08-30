@@ -65,9 +65,16 @@
         </uf-textarea>
       </div>
       } @else if (question.type=="radio"){
-      <div class="flex flex-row"></div>
+      <div class="flex flex-row">
+
+      </div>
       } @else if (question.type=="check"){
-      <div class="flex flex-row"></div>
+      <div class="flex flex-row">
+        <uf-form-check-input
+          [choices]="question.choices"
+          class="w-full">
+        </uf-form-check-input>
+      </div>
       } @else if (question.type=="rate"){
       <div class="flex flex-row">
         <uf-form-rate-input

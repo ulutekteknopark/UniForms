@@ -1,0 +1,9 @@
+<fieldset class="flex flex-col justify-start gap-2">
+  <div
+    class="text-start"
+    *ngFor="let choice of strings; index as i">
+    <mat-checkbox type="checkbox" [value]="choice">
+      {{ choice }}
+    </mat-checkbox>
+  </div>
+</fieldset>

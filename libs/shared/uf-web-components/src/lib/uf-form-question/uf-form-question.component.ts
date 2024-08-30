@@ -10,6 +10,7 @@ import { UfTextareaComponent } from '../uf-textarea/uf-textarea.component';
 import { UfEmailInputComponent } from '../uf-email-input/uf-email-input.component';
 import { UfDateInputComponent } from '../uf-date-input/uf-date-input.component';
 import { UfFormAddressComponent } from '../uf-form-address/uf-form-address.component';
+import { UfFormCheckInputComponent } from '../uf-check-input/uf-form-check-input.component';
 
 export interface FormQuestion {
   id: number;
@@ -37,6 +38,7 @@ export interface FormQuestion {
     UfTextareaComponent,
     UfEmailInputComponent,
     UfDateInputComponent,
+    UfFormCheckInputComponent,
     UfFormAddressComponent,
   ],
   styleUrls: ['./uf-form-question.component.scss'],
@@ -57,8 +59,6 @@ export class UfFormQuestionComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['required']) {
-      console.log(this.required);
-
       this.updateValidators();
     }
   }

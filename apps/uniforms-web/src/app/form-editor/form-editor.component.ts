@@ -15,6 +15,7 @@ import {
   FormQuestion,
 } from '@uniforms/uf-web-components';
 import { AddAddressDialogComponent } from '../add-address-dialog/add-address-dialog.component';
+import { AddCheckDialogComponent } from '../add-check-dialog/add-check-dialog.component';
 
 const ModalStyle = {
   maxWidth: '100vw',
@@ -64,6 +65,8 @@ export class FormEditorComponent {
       this.openEditRateDialog(question);
     }else if(question.type == 'address'){
       this.openEditAddressDialog(question);
+    }else if(question.type == 'check'){
+      this.openEditCheckDialog(question);
     }
   }
 
@@ -214,6 +217,40 @@ export class FormEditorComponent {
       filteredQuestion.choices = eventData.choices;
     });
   }
+
+  openAddCheckDialog(): void {
+    const dialogRef = this.dialog.open(AddCheckDialogComponent, {
+      data: {
+        isEditing: false,
+      },
+      ...ModalStyle,
+    });
+
+    dialogRef.componentInstance.addCheckEvent.subscribe((eventData) => {
+      this.addQuestion('check', eventData.title, true, eventData.required, eventData.choices);
+    });
+  }
+
+  openEditCheckDialog(question: FormQuestion): void {
+    const dialogRef = this.dialog.open(AddCheckDialogComponent, {
+      data: {
+        isEditing: true,
+        id: question.id,
+        text: question.text,
+        choices: question.choices,
+        required: question.required,
+      },
+      ...ModalStyle,
+    });
+
+    dialogRef.componentInstance.addCheckEvent.subscribe((eventData) => {
+      let filteredQuestion = this.questions.filter(q => q.id === question.id)[0];
+      filteredQuestion.required = eventData.required;
+      filteredQuestion.text = eventData.title;
+      filteredQuestion.choices = eventData.choices;
+    });
+  }
+
 
   save() {
     alert("save()");
