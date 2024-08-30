@@ -3,19 +3,19 @@
     @if(city){
     <mat-form-field>
       <mat-label>İl</mat-label>
-      <input matInput placeholder="Örn. Denizli">
+      <input matInput [required]="required" placeholder="Örn. Denizli">
     </mat-form-field>
     }
     @if(district){
     <mat-form-field>
       <mat-label>İlçe</mat-label>
-      <input matInput placeholder="Örn. Merkezefendi">
+      <input matInput [required]="required" placeholder="Örn. Merkezefendi">
     </mat-form-field>
     }
     @if(postal_code){
     <mat-form-field>
       <mat-label>Posta Kodu</mat-label>
-      <input matInput #postalCode maxlength="5" placeholder="Örn. 20100">
+      <input matInput #postalCode [required]="required" maxlength="5" placeholder="Örn. 20100">
       <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
     </mat-form-field>
     }
@@ -25,13 +25,13 @@
     @if(address){
     <mat-form-field class="flex-grow">
       <mat-label>Adres</mat-label>
-      <textarea matInput placeholder="Örn. Değirmenönü Mah. 1706 sok."></textarea>
+      <textarea matInput [required]="required" placeholder="Örn. Değirmenönü Mah. 1706 sok."></textarea>
     </mat-form-field>
     }
     @if(address2){
     <mat-form-field class="flex-grow">
       <mat-label>Adres 2</mat-label>
-      <textarea matInput></textarea>
+      <textarea [required]="required" matInput></textarea>
     </mat-form-field>
     }
   </section>

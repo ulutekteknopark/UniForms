@@ -12,6 +12,7 @@ import { MatInput } from '@angular/material/input';
 })
 export class UfFormAddressComponent {
   @Input() choices?: { [key: string]: any };
+  @Input() required: boolean = true;
 
   get city(): boolean {
     return this.choices?.['city'];
