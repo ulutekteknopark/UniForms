@@ -11,6 +11,7 @@ import { UfEmailInputComponent } from '../uf-email-input/uf-email-input.componen
 import { UfDateInputComponent } from '../uf-date-input/uf-date-input.component';
 import { UfFormAddressComponent } from '../uf-form-address/uf-form-address.component';
 import { UfFormCheckInputComponent } from '../uf-check-input/uf-form-check-input.component';
+import { UfFormRadioInputComponent } from '../uf-radio-input/uf-form-radio-input.component';
 
 export interface FormQuestion {
   id: number;
@@ -35,6 +36,7 @@ export interface FormQuestion {
     MatIcon,
     UfFormRateInputComponent,
     UfFormInputComponent,
+    UfFormRadioInputComponent,
     UfTextareaComponent,
     UfEmailInputComponent,
     UfDateInputComponent,

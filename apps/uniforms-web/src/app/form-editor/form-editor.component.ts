@@ -7,6 +7,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddTitleDialogComponent } from '../add-title-dialog/add-title-dialog.component';
 import { AddDateDialogComponent } from '../add-date-dialog/add-date-dialog.component';
 import { AddRateDialogComponent } from '../add-rate-dialog/add-rate-dialog.component';
+import { AddAddressDialogComponent } from '../add-address-dialog/add-address-dialog.component';
+import { AddCheckDialogComponent } from '../add-check-dialog/add-check-dialog.component';
+import { AddRadioDialogComponent } from '../add-radio-dialog/add-radio-dialog.component';
 import {
   UfFormElementSelectButtonComponent,
   UfFormInputComponent,
@@ -14,8 +17,6 @@ import {
   UfTextareaComponent,
   FormQuestion,
 } from '@uniforms/uf-web-components';
-import { AddAddressDialogComponent } from '../add-address-dialog/add-address-dialog.component';
-import { AddCheckDialogComponent } from '../add-check-dialog/add-check-dialog.component';
 
 const ModalStyle = {
   maxWidth: '100vw',
@@ -28,8 +29,14 @@ const ModalStyle = {
 @Component({
   selector: 'uf-form-editor',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, UfFormQuestionComponent, UfFormElementSelectButtonComponent,
-    UfFormInputComponent, UfTextareaComponent
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    UfFormQuestionComponent,
+    UfFormElementSelectButtonComponent,
+    UfFormInputComponent,
+    UfTextareaComponent,
   ],
   templateUrl: './form-editor.component.html',
   styleUrls: ['./form-editor.component.scss'],
@@ -67,6 +74,8 @@ export class FormEditorComponent {
       this.openEditAddressDialog(question);
     }else if(question.type == 'check'){
       this.openEditCheckDialog(question);
+    }else if(question.type == 'radio'){
+      this.openEditRadioDialog(question);
     }
   }
 
@@ -250,6 +259,40 @@ export class FormEditorComponent {
       filteredQuestion.choices = eventData.choices;
     });
   }
+
+  openAddRadioDialog(): void {
+    const dialogRef = this.dialog.open(AddRadioDialogComponent, {
+      data: {
+        isEditing: false,
+      },
+      ...ModalStyle,
+    });
+
+    dialogRef.componentInstance.addRadioEvent.subscribe((eventData) => {
+      this.addQuestion('radio', eventData.title, true, eventData.required, eventData.choices);
+    });
+  }
+
+  openEditRadioDialog(question: FormQuestion): void {
+    const dialogRef = this.dialog.open(AddRadioDialogComponent, {
+      data: {
+        isEditing: true,
+        id: question.id,
+        text: question.text,
+        choices: question.choices,
+        required: question.required,
+      },
+      ...ModalStyle,
+    });
+
+    dialogRef.componentInstance.addRadioEvent.subscribe((eventData) => {
+      let filteredQuestion = this.questions.filter(q => q.id === question.id)[0];
+      filteredQuestion.required = eventData.required;
+      filteredQuestion.text = eventData.title;
+      filteredQuestion.choices = eventData.choices;
+    });
+  }
+
 
 
   save() {
