@@ -15,17 +15,12 @@ export class ResultPageComponent implements OnInit {
   public config: any = {
     type: 'pie',
     data: {
-      labels: ['JAN', 'FEB', 'MAR', 'APRIL'],
+      labels: [],
       datasets: [
         {
-          label: 'Sales',
-          data: [467, 576, 572, 588],
-          backgroundColor: 'blue',
-        },
-        {
-          label: 'PAT',
-          data: [100, 120, 133, 134],
-          backgroundColor: 'red',
+          label: 'Responses',
+          data: [],
+          backgroundColor: ['blue', 'red', 'green', 'yellow'],
         },
       ],
     },
@@ -38,23 +33,61 @@ export class ResultPageComponent implements OnInit {
   chart!: Chart;
 
   responses = [
-    { question: 'What is your name?', answer: 'John Doe' },
-    { question: 'How old are you?', answer: '28' },
-    // Diğer yanıtlar
+    {
+      question: 'What is your name?',
+      answers: ['John Doe', 'Jane Smith'],
+      type: 'text'
+    },
+    {
+      question: 'How old are you?',
+      answers: ['28', '30', '25'],
+      type: 'text'
+    },
+    {
+      question: 'What is your favorite color?',
+      answers: ['Blue', 'Red', 'Green'],
+      type: 'radio'
+    },
+    {
+      question: 'Do you like pizza?',
+      answers: ['Yes', 'No'],
+      type: 'check'
+    },
   ];
 
   selectedStep = 'step1';
+  selectedQuestionIndex?: number;
+  selectedAnswers: string[] = [];
 
   ngOnInit(): void {
     this.showStep(this.selectedStep);
   }
 
-  showStep(step: string) {
+  showStep(step: string, selectedQuestionIndex?: number) {
     this.selectedStep = step;
+
     if (step === 'step1') {
-      setTimeout(() => {
-        this.chart = new Chart('MyChart', this.config);
-      }, 0);
+      const hasChart = this.responses.some(response => response.type === 'radio' || response.type === 'check');
+      
+      if (hasChart) {
+        const chartData = this.responses.filter(response => response.type === 'radio' || response.type === 'check');
+        this.config.data.labels = chartData.map(response => response.question); 
+        this.config.data.datasets[0].data = chartData.map(response => response.answers.length); 
+
+        setTimeout(() => {
+          this.chart = new Chart('MyChart', this.config);
+        }, 0);
+      } else {
+        if (this.chart) {
+          this.chart.destroy();
+        }
+      }
+    } else if (step === 'step2') {
+      this.selectedQuestionIndex = selectedQuestionIndex;
+    } else if (step === 'step3') {
+      if (selectedQuestionIndex !== undefined) {
+        this.selectedAnswers = this.responses[selectedQuestionIndex].answers;
+      }
     }
   }
 }
