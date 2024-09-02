@@ -26,6 +26,8 @@ export class UfLoginFormComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
+  buttonDisabled = false;
+
   private authService: AuthService = inject(AuthService);
   constructor(public dialog: MatDialog) { }
 
@@ -41,6 +43,11 @@ export class UfLoginFormComponent {
   onSubmit() {
     if (this.emailFormControl.valid && this.passwordFormControl.valid) {
       console.log("Submitting email: " + this.emailFormControl.value + ", password: " + this.passwordFormControl.value);
+      this.buttonDisabled = true;
+      this.authService.emailLogin(
+        this.emailFormControl.value??'',
+        this.passwordFormControl.value??''
+      )
     }
   }
 

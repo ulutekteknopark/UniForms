@@ -1,32 +1,63 @@
 <mat-dialog-content class="!max-h-screen !p-1">
-  <div class="flex flex-wrap rounded-[30px]  min-h-full">
-    <img alt="ecommerce" class="lg:w-1/2 w-full" src="/assets/form-img.jpg">
-    <div class="flex flex-col lg:w-1/2 w-full rounded-lg p-8 align-middle justify-center">
-      <div class="text-purple-900 text-4xl font-bold mb-16">Uniforms'a Kayıt Ol</div>
+  <div class="flex flex-wrap rounded-[30px] min-h-full">
+    <img alt="ecommerce" class="lg:w-1/2 w-full" src="/assets/form-img.jpg" />
+    <div
+      class="flex flex-col lg:w-1/2 w-full rounded-lg p-8 align-middle justify-center"
+    >
+      <div class="text-purple-900 text-4xl font-bold mb-16">
+        Uniforms'a Kayıt Ol
+      </div>
       <div class="relative gap-x-4 flex flex-row flex-wrap">
-        <uf-form-input class="flex-grow" title="İsim" [inputFormControl]="nameFormControl"></uf-form-input>
-        <uf-form-input class="flex-grow" title="Soyisim" [inputFormControl]="surnameFormControl"></uf-form-input>
+        <uf-form-input
+          class="flex-grow"
+          title="İsim"
+          [inputFormControl]="nameFormControl"
+        ></uf-form-input>
+        <uf-form-input
+          class="flex-grow"
+          title="Soyisim"
+          [inputFormControl]="surnameFormControl"
+        ></uf-form-input>
       </div>
       <div class="relative">
         <uf-email-input [emailFormControl]="emailFormControl"></uf-email-input>
       </div>
       <div class="relative">
-        <uf-password-input [passwordFormControl]="passwordFormControl"></uf-password-input>
-        <uf-password-input title="Şifre Tekrar" [passwordFormControl]="repeatpasswordFormControl"></uf-password-input>
-        @if(repeatpasswordFormControl.valid && passwordFormControl.value != repeatpasswordFormControl.value){
-        <p class="text-red-500 text-sm mb-2 ml-2">Girilen şifreler aynı olmalı</p>
+        <uf-password-input
+          [passwordFormControl]="passwordFormControl"
+        ></uf-password-input>
+        <uf-password-input
+          title="Şifre Tekrar"
+          [passwordFormControl]="repeatpasswordFormControl"
+        ></uf-password-input>
+        @if(repeatpasswordFormControl.valid && passwordFormControl.value !=
+        repeatpasswordFormControl.value){
+        <p class="text-red-500 text-sm mb-2 ml-2">
+          Girilen şifreler aynı olmalı
+        </p>
         }
       </div>
       <div class="relative mb-4">
-        <uf-checkbox title="" (onCheckedChange)="onCheckboxChange($event)"></uf-checkbox>
-        <a href="">Kullanım Koşullarını</a> ve <a href="">Gizlilik Politaksını</a> okudum ve kabul ediyorum
+        <uf-checkbox
+          title=""
+          (onCheckedChange)="onCheckboxChange($event)"
+        ></uf-checkbox>
+        <a href="">Kullanım Koşullarını</a> ve
+        <a href="">Gizlilik Politaksını</a> okudum ve kabul ediyorum
       </div>
       <div class="relative mb-4">
-        <uf-button title="Kayıt Ol" wfull (click)="onSubmit()" [disabled]="!isValid()">
+        <uf-button
+          title="Kayıt Ol"
+          wfull
+          (click)="onSubmit()"
+          [disabled]="!isValid() || buttonDisabled"
+        >
         </uf-button>
       </div>
       <div class="relative">
-        Zaten hesabınız var mı ? <button class="text-blue-800" (click)="close()">Giriş Yap</button>      </div>
+        Zaten hesabınız var mı ?
+        <button class="text-blue-800" (click)="close()">Giriş Yap</button>
+      </div>
     </div>
   </div>
 </mat-dialog-content>

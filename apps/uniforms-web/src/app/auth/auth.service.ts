@@ -51,9 +51,22 @@ export class AuthService {
     }
   }
 
+  async emailLogin(email: string, password: string) {
+    try {
+      const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
+
+      this.dialog.closeAll();
+      this.router.navigate(["/myforms"])
+      return userCredential.user;
+    } catch (error) {
+      console.error('Login error:', error);
+      return of(null); 
+    }
+  }
+
   public async logout() {
     await this.auth.signOut().then(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     });
   }
 }

@@ -29,6 +29,8 @@ export class UfSignupFormComponent {
   repeatpasswordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
   isCheckboxChecked: boolean = false;
 
+  buttonDisabled = false;
+
   private authService: AuthService = inject(AuthService);
 
   constructor(public dialog: MatDialog) { }
@@ -43,6 +45,8 @@ export class UfSignupFormComponent {
         password: ${this.passwordFormControl.value},
         repeatPassword: ${this.repeatpasswordFormControl.value}
       `);
+
+      this.buttonDisabled = true;
 
       this.authService.signup(
         this.nameFormControl.value??'',

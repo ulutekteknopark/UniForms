@@ -1,22 +1,43 @@
 <mat-dialog-content class="!max-h-screen !p-1">
   <div class="flex flex-wrap-reverse rounded-[30px] min-h-full">
-    <div class="flex flex-col lg:w-1/2 w-full rounded-lg p-8 align-middle justify-center">
-      <div class="text-purple-900 text-4xl font-bold mb-16">Uniforms'a Giriş Yap</div>
+    <div
+      class="flex flex-col lg:w-1/2 w-full rounded-lg p-8 align-middle justify-center"
+    >
+      <div class="text-purple-900 text-4xl font-bold mb-16">
+        Uniforms'a Giriş Yap
+      </div>
       <div class="relative mb-4">
         <uf-email-input [emailFormControl]="emailFormControl"></uf-email-input>
       </div>
       <div class="relative mb-4">
-        <uf-password-input [passwordFormControl]="passwordFormControl"></uf-password-input>
+        <uf-password-input
+          [passwordFormControl]="passwordFormControl"
+        ></uf-password-input>
       </div>
       <div class="relative mb-8">
-        <uf-button title="Giriş Yap" (click)="onSubmit()" wfull
-          [disabled]="emailFormControl.invalid || passwordFormControl.invalid">
+        <uf-button
+          title="Giriş Yap"
+          (click)="onSubmit()"
+          wfull
+          [disabled]="
+            emailFormControl.invalid ||
+            passwordFormControl.invalid ||
+            buttonDisabled
+          "
+        >
         </uf-button>
       </div>
       <div class="relative">
-        Hesabınız yok mu? <button class="text-blue-800" (click)="openSignInModal()">Kayıt Ol</button>
+        Hesabınız yok mu?
+        <button class="text-blue-800" (click)="openSignInModal()">
+          Kayıt Ol
+        </button>
       </div>
     </div>
-    <img alt="giriş yap" class="lg:w-1/2 w-full lg:h-auto h-auto object-cover object-center" src="/assets/form-img.jpg">
+    <img
+      alt="giriş yap"
+      class="lg:w-1/2 w-full lg:h-auto h-auto object-cover object-center"
+      src="/assets/form-img.jpg"
+    />
   </div>
 </mat-dialog-content>

@@ -31,6 +31,8 @@
 
       <a routerLink="/templates" class="p-1 hover:text-gray-900">Şablonlar</a>
 
+      <div class="items-center">{{ this.user()?.email }}</div>
+
       <button
         (click)="this.logout()"
         class="p-1 inline-flex items-center border-0 focus:outline-none text-white bg-red-400 hover:bg-red-500 rounded text-base"
