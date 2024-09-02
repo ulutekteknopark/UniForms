@@ -4,6 +4,7 @@ import { UfTemplatePreviewComponent } from '@uniforms/uf-web-components';
 import { UfFormInputComponent } from '@uniforms/uf-web-components';
 import { FormControl } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'uf-templates',
@@ -55,6 +56,8 @@ export class TemplatesComponent {
 
   searchTemplateFormControl = new FormControl('');
 
+  constructor(private router: Router) {}
+
   ngOnInit() {
     this.searchTemplateFormControl.valueChanges.subscribe(value => {
       console.log('Search input changed:', value);
@@ -76,6 +79,6 @@ export class TemplatesComponent {
 
   useTemplate(templateId: Number) {
     let template = this.templates.find(template => template.id == templateId)
-    alert(`${template?.templateName} şablonu kullanılacak`)
+    this.router.navigate(["/myforms/1"]);
   }
 }

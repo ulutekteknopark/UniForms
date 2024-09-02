@@ -4,7 +4,7 @@
       <mat-icon matPrefix>{{ icon }}</mat-icon>
     }
     <mat-label>{{ title }}</mat-label>
-    <input  matInput type="text" [formControl]="inputFormControl" placeholder="{{ placeholder }}">
+    <input  matInput [type]="type" [formControl]="inputFormControl" placeholder="{{ placeholder }}">
     @if (inputFormControl.value) {
       <button matSuffix mat-icon-button aria-label="Clear" (click)="inputFormControl.reset()">
         <mat-icon>close</mat-icon>

@@ -22,6 +22,7 @@ export class UfFormInputComponent {
   @Input() error: string = "Lütfen geçerli bir değer girin!";
   @Input() required: boolean = false;
   @Input() icon: string | undefined = '';
+  @Input() type: string = 'text';
 
   @Input() inputFormControl: FormControl = new FormControl('', [Validators.required]);
 }

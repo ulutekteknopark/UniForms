@@ -1,0 +1,38 @@
+<div class="w-full flex flex-col justify-center">
+  <section class="flex flex-row justify-between gap-4">
+    @if(city){
+    <mat-form-field>
+      <mat-label>İl</mat-label>
+      <input matInput [required]="required" placeholder="Örn. Denizli">
+    </mat-form-field>
+    }
+    @if(district){
+    <mat-form-field>
+      <mat-label>İlçe</mat-label>
+      <input matInput [required]="required" placeholder="Örn. Merkezefendi">
+    </mat-form-field>
+    }
+    @if(postal_code){
+    <mat-form-field>
+      <mat-label>Posta Kodu</mat-label>
+      <input matInput #postalCode [required]="required" maxlength="5" placeholder="Örn. 20100">
+      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+    </mat-form-field>
+    }
+  </section>
+
+  <section class="flex flex-row justify-between gap-4">
+    @if(address){
+    <mat-form-field class="flex-grow">
+      <mat-label>Adres</mat-label>
+      <textarea matInput [required]="required" placeholder="Örn. Değirmenönü Mah. 1706 sok."></textarea>
+    </mat-form-field>
+    }
+    @if(address2){
+    <mat-form-field class="flex-grow">
+      <mat-label>Adres 2</mat-label>
+      <textarea [required]="required" matInput></textarea>
+    </mat-form-field>
+    }
+  </section>
+</div>

@@ -3,7 +3,7 @@ import { UfFacebookLoginButtonComponent } from './uf-facebook-login-button.compo
 
 const meta: Meta<UfFacebookLoginButtonComponent> = {
   component: UfFacebookLoginButtonComponent,
-  title: 'UfGoogleLoginButtonComponent',
+  title: 'UfFacebookLoginButtonComponent ',
 };
 export default meta;
 type Story = StoryObj<UfFacebookLoginButtonComponent>;
