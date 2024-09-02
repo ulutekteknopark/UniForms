@@ -47,6 +47,6 @@ export class UfSocialLoginFormComponent {
   }
 
   public signInWithGoogle() {
-        this.authService.loginWithGoogle()
+    this.authService.loginWithGoogle()
   }
 }

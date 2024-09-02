@@ -47,7 +47,7 @@ export class AuthService {
       return user;
     } catch (error) {
       console.error('Signup error:', error);
-      return of(null);
+      return (error as Error);
     }
   }
 
@@ -60,7 +60,7 @@ export class AuthService {
       return userCredential.user;
     } catch (error) {
       console.error('Login error:', error);
-      return of(null); 
+      return (error as Error);
     }
   }
 

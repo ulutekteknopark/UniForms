@@ -30,13 +30,14 @@ export class UfSignupFormComponent {
   isCheckboxChecked: boolean = false;
 
   buttonDisabled = false;
+  message = "";
 
   private authService: AuthService = inject(AuthService);
 
   constructor(public dialog: MatDialog) { }
 
   onSubmit(): void {
-    if(this.isValid()){
+    if (this.isValid()) {
       console.log(`
         Submitting:
         name: ${this.nameFormControl.value},
@@ -47,13 +48,21 @@ export class UfSignupFormComponent {
       `);
 
       this.buttonDisabled = true;
+      this.message = "";
 
       this.authService.signup(
-        this.nameFormControl.value??'',
-        this.surnameFormControl.value??'',
-        this.emailFormControl.value??'',
-        this.passwordFormControl.value??''
-      )
+        this.nameFormControl.value ?? '',
+        this.surnameFormControl.value ?? '',
+        this.emailFormControl.value ?? '',
+        this.passwordFormControl.value ?? ''
+      ).then((response) => {
+        if (response instanceof Error) {
+          this.message = "Girdiğiniz biligiler hatalı, kontrol edebilir misiniz?";
+          this.buttonDisabled = false;
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
     }
   }
 
@@ -73,7 +82,7 @@ export class UfSignupFormComponent {
     this.isCheckboxChecked = isChecked;
   }
 
-  close():void{
+  close(): void {
     this.dialog.closeAll();
     this.dialog.open(UfSocialLoginFormComponent, {
       maxWidth: '60vw',

@@ -28,6 +28,8 @@ export class UfLoginFormComponent {
 
   buttonDisabled = false;
 
+  message = "";
+
   private authService: AuthService = inject(AuthService);
   constructor(public dialog: MatDialog) { }
 
@@ -44,14 +46,19 @@ export class UfLoginFormComponent {
     if (this.emailFormControl.valid && this.passwordFormControl.valid) {
       console.log("Submitting email: " + this.emailFormControl.value + ", password: " + this.passwordFormControl.value);
       this.buttonDisabled = true;
-      this.authService.emailLogin(
-        this.emailFormControl.value??'',
-        this.passwordFormControl.value??''
-      )
-    }
-  }
+      this.message = "";
 
-  public signInWithGoogle() {
-        this.authService.loginWithGoogle()
+      this.authService.emailLogin(
+        this.emailFormControl.value ?? '',
+        this.passwordFormControl.value ?? ''
+      ).then((response) => {
+        if (response instanceof Error) {
+          this.message = "Eposta veya şifre hatalı, kontrol edebilir misiniz?";
+          this.buttonDisabled = false;
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
   }
 }
