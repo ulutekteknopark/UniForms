@@ -1,0 +1,16 @@
+<div class="m-1">
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Telefon</mat-label>
+    <span matTextPrefix>0 &nbsp;</span>
+    <input
+      type="tel"
+      matInput
+      placeholder="5XX XXX XX XX"
+      [formControl]="phoneFormControl"
+    />
+    <mat-icon matSuffix>phone</mat-icon>
+    @if (phoneFormControl.hasError('required')) {
+    <mat-error>Telefon girmek <strong>gereklidir!</strong></mat-error>
+    }
+  </mat-form-field>
+</div>

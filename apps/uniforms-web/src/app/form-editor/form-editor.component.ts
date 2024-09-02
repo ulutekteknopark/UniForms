@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
+import { AddTextfieldDialogComponent } from '../add-textfield-dialog/add-textfield-dialog.component';
 import { AddTitleDialogComponent } from '../add-title-dialog/add-title-dialog.component';
 import { AddDateDialogComponent } from '../add-date-dialog/add-date-dialog.component';
 import { AddRateDialogComponent } from '../add-rate-dialog/add-rate-dialog.component';
@@ -76,6 +77,8 @@ export class FormEditorComponent {
       this.openEditCheckDialog(question);
     }else if(question.type == 'radio'){
       this.openEditRadioDialog(question);
+    }else if(question.type == 'text'){
+      this.openEditTextfieldDialog(question)
     }
   }
 
@@ -176,11 +179,9 @@ export class FormEditorComponent {
   openEditRateDialog(question: FormQuestion): void {
     const dialogRef = this.dialog.open(AddRateDialogComponent, {
       data: {
-        isEditing: true,
-        id: question.id,
+        isEditing: false,
         text: question.text,
         choices: question.choices,
-        required: question.required,
       },
       ...ModalStyle,
       width: '60vw',
@@ -194,10 +195,43 @@ export class FormEditorComponent {
     });
   }
 
+  openAddTextfieldDialog(): void {
+    const dialogRef = this.dialog.open(AddTextfieldDialogComponent, {
+      data: {
+        isEditing: false,
+      },
+      ...ModalStyle,
+    });
+
+    dialogRef.componentInstance.addTextfieldEvent.subscribe((eventData) => {
+      this.addQuestion('text', eventData.title, true, eventData.required);
+    });
+  }
+
+  openEditTextfieldDialog(question: FormQuestion): void {
+    const dialogRef = this.dialog.open(AddTextfieldDialogComponent, {
+      data: {
+        isEditing: true,
+        id: question.id,
+        text: question.text,
+        choices: question.choices,
+        required: question.required,
+      },
+      ...ModalStyle
+    });
+
+    dialogRef.componentInstance.addTextfieldEvent.subscribe((eventData) => {
+      let filteredQuestion = this.questions.filter(q => q.id === question.id)[0];
+      filteredQuestion.required = eventData.required;
+      filteredQuestion.text = eventData.title;
+    });
+  }
+
   openAddAddressDialog(): void {
     const dialogRef = this.dialog.open(AddAddressDialogComponent, {
       data: {
         isEditing: false,
+        choices: {},
       },
       ...ModalStyle,
     });
@@ -292,7 +326,6 @@ export class FormEditorComponent {
       filteredQuestion.choices = eventData.choices;
     });
   }
-
 
 
   save() {

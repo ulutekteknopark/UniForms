@@ -32,9 +32,7 @@ export class AddAddressDialogComponent {
     required: boolean,
     choices: { [key: string]: any },
   }) {
-    if(!data.choices){
-      data.choices = this.choices;
-    }
+    this.choices = data['choices'];
   }
 
   onAddClick() {
