@@ -61,6 +61,7 @@
         "development": {
           "buildTarget": "uniforms-web:build:development"
         }
+        
       },
       "defaultConfiguration": "development"
     },

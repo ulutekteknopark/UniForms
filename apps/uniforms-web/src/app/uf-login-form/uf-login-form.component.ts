@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -13,6 +13,8 @@ import {
   UfEmailInputComponent,
 } from '@uniforms/uf-web-components';
 
+import { AuthService } from '../auth/auth.service';
+
 @Component({
   selector: 'uf-login-form',
   standalone: true,
@@ -24,6 +26,7 @@ export class UfLoginFormComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
+  private authService: AuthService = inject(AuthService);
   constructor(public dialog: MatDialog) { }
 
   openSignInModal(): void {
@@ -39,5 +42,9 @@ export class UfLoginFormComponent {
     if (this.emailFormControl.valid && this.passwordFormControl.valid) {
       console.log("Submitting email: " + this.emailFormControl.value + ", password: " + this.passwordFormControl.value);
     }
+  }
+
+  public signInWithGoogle() {
+        this.authService.loginWithGoogle()
   }
 }

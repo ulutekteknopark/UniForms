@@ -1,25 +1,73 @@
 <header class="text-gray-600 body-font">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a href="/" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-        viewBox="0 0 24 24">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+  <div
+    class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+  >
+    <a
+      href="/"
+      class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+        ></path>
       </svg>
       <span class="ml-3 text-xl">UniForms</span>
     </a>
-    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center gap-4">
-     <a routerLink="/myforms" class="p-1 hover:text-gray-900">Formlarım</a>
+    <nav
+      class="md:ml-auto flex flex-wrap items-center text-base justify-center gap-4"
+    >
+      @if(this.user()){
 
-     <a routerLink="/templates" class="p-1 hover:text-gray-900">Şablonlar</a>
-      <button (click)="openLoginModal()"
-        class="p-1 inline-flex items-center border-0 focus:outline-none bg-gray-100 hover:bg-gray-200 rounded text-base">
-        Giriş Yap
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+      <a routerLink="/myforms" class="p-1 hover:text-gray-900">Formlarım</a>
+
+      <a routerLink="/templates" class="p-1 hover:text-gray-900">Şablonlar</a>
+
+      <button
+        (click)="this.logout()"
+        class="p-1 inline-flex items-center border-0 focus:outline-none text-white bg-red-400 hover:bg-red-500 rounded text-base"
+      >
+        Çıkış Yap
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="w-4 h-4 ml-1"
+          viewBox="0 0 24 24"
+        >
           <path d="M5 12h14M12 5l7 7-7 7"></path>
         </svg>
       </button>
+
+      }@else{
+      <button
+        (click)="openLoginModal()"
+        class="p-1 inline-flex items-center border-0 focus:outline-none bg-gray-100 hover:bg-gray-200 rounded text-base"
+      >
+        Giriş Yap
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="w-4 h-4 ml-1"
+          viewBox="0 0 24 24"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+      }
     </nav>
   </div>
 </header>
