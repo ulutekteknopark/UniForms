@@ -1,0 +1,12 @@
+<div class="m-1">
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>{{ title }}</mat-label>
+    <input matInput [matDatepicker]="picker" [formControl]="dateFormControl" />
+    <mat-hint>Gün/Ay/Yıl</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    @if (dateFormControl.hasError('required')) {
+    <mat-error>Tarih girmek <strong>gereklidir!</strong></mat-error>
+    }
+  </mat-form-field>
+</div>

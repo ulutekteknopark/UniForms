@@ -1,0 +1,30 @@
+<h2 mat-dialog-title align="center">
+  Tarih {{ data.isEditing ? 'Düzenle' : 'Ekle' }}
+</h2>
+<mat-dialog-content class="!max-h-screen !p-1">
+  <div class="flex rounded-[30px] min-h-full">
+    <div
+      class="flex flex-col w-full rounded-lg py-5 mx-auto align-middle justify-center"
+    >
+      <uf-form-input
+        title="Soru"
+        [inputFormControl]="titleFormControl"
+      ></uf-form-input>
+
+      <uf-checkbox
+        title="Zorunlu Alan"
+        (onCheckedChange)="onDateRequiredChange($event)"
+        [isChecked]="this.data.required"
+      ></uf-checkbox>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <uf-button title="Vazgeç" mat-dialog-close></uf-button>
+  <uf-button
+    title="{{ data.isEditing ? 'Düzenle' : 'Ekle' }}"
+    (click)="onAddClick()"
+    [mat-dialog-close]="true"
+    [disabled]="this.titleFormControl.invalid"
+  ></uf-button>
+</mat-dialog-actions>

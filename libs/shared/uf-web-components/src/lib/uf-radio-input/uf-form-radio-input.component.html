@@ -1,0 +1,11 @@
+<fieldset class="flex flex-col justify-start gap-2">
+  <mat-radio-group class="flex flex-col items-start justify-start">
+    <mat-radio-button
+      *ngFor="let choice of strings; index as i"
+      type="radio"
+      [value]="choice"
+    >
+      {{ choice }}
+    </mat-radio-button>
+  </mat-radio-group>
+</fieldset>
