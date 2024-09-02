@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Validators, FormControl } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -11,6 +11,7 @@ import {
   UfPasswordInputComponent,
   UfEmailInputComponent,
 } from '@uniforms/uf-web-components';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'uf-signup-form',
@@ -28,6 +29,8 @@ export class UfSignupFormComponent {
   repeatpasswordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
   isCheckboxChecked: boolean = false;
 
+  private authService: AuthService = inject(AuthService);
+
   constructor(public dialog: MatDialog) { }
 
   onSubmit(): void {
@@ -40,6 +43,13 @@ export class UfSignupFormComponent {
         password: ${this.passwordFormControl.value},
         repeatPassword: ${this.repeatpasswordFormControl.value}
       `);
+
+      this.authService.signup(
+        this.nameFormControl.value??'',
+        this.surnameFormControl.value??'',
+        this.emailFormControl.value??'',
+        this.passwordFormControl.value??''
+      )
     }
   }
 
