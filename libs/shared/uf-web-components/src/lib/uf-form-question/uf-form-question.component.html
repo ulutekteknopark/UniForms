@@ -64,24 +64,28 @@
       </div>
       } @else if (question.type=="radio"){
       <div class="flex flex-row">
-        <uf-form-radio-input
-          [choices]="question.choices"
-          class="w-full">
+        <uf-form-radio-input [choices]="question.choices" class="w-full">
         </uf-form-radio-input>
       </div>
       } @else if (question.type=="check"){
       <div class="flex flex-row">
-        <uf-form-check-input
-          [choices]="question.choices"
-          class="w-full">
+        <uf-form-check-input [choices]="question.choices" class="w-full">
         </uf-form-check-input>
       </div>
       } @else if (question.type=="rate"){
       <div class="flex flex-row">
-        <uf-form-rate-input
-          [choices]="question.choices"
-          class="w-full">
+        <uf-form-rate-input [choices]="question.choices" class="w-full">
         </uf-form-rate-input>
+      </div>
+      } @else if (question.type=="dropdown"){
+      <div class="flex flex-row">
+        <uf-dropdown
+          [title]="question.text"
+          [choices]="question.choices"
+          [dropdownFormControl]="formControl"
+          class="w-full"
+        >
+        </uf-dropdown>
       </div>
       }
     </div>
