@@ -20,6 +20,6 @@ export class UfFormCheckInputComponent {
   @Input() choices?: { [key: string]: any };
 
   get strings(): string[]{
-    return (this.choices?.['strings'] as string[]).filter(str => str.length > 0)
+    return (this.choices?.['options'] as string[]).filter(str => str.length > 0)
   }
 }

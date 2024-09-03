@@ -3,7 +3,6 @@ import { NgIf, NgFor } from '@angular/common';
 import { MatError } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatCheckbox } from '@angular/material/checkbox';
-import { MatOptgroup } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 
 // export interface FormRadioInputArgs {
@@ -22,6 +21,6 @@ export class UfFormRadioInputComponent {
   @Input() choices?: { [key: string]: any };
 
   get strings(): string[]{
-    return (this.choices?.['strings'] as string[]).filter(str => str.length > 0)
+    return (this.choices?.['options'] as string[]).filter(str => str.length > 0)
   }
 }

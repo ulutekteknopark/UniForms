@@ -1,0 +1,99 @@
+<div class="flex gap-4 container mx-auto py-5">
+  <div class="flex flex-col basis-1/3">
+    <div class="bg-purple-700 text-white text-center p-4">Form Elementleri</div>
+    <uf-form-element-select-button
+      title="Başlık"
+      icon="edit"
+      icon2="add"
+      (click)="addQuestion('title')"
+    >
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Ad Soyad"
+      icon="account_circle"
+      icon2="add"
+      (click)="addQuestion('name')"
+    >
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Email"
+      icon="email"
+      icon2="add"
+      (click)="addQuestion('email')"
+    >
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Adres"
+      icon="location_on"
+      icon2="add"
+      (click)="addQuestion('address')"
+    >
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Telefon"
+      icon="mobile_friendly"
+      icon2="add"
+      (click)="addQuestion('phone')"
+    >
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Tarih"
+      icon="event"
+      icon2="add"
+      (click)="addQuestion('date')"
+    >
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Metin"
+      icon="edit_note"
+      icon2="add"
+      (click)="addQuestion('text')"
+    >
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Ölçek Değerlendirme"
+      icon="star"
+      icon2="add"
+      (click)="addQuestion('rate')"
+    >
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Tik Değerlendirme"
+      icon="checkbox_checked"
+      icon2="add"
+      (click)="addQuestion('check')"
+    >
+    </uf-form-element-select-button>
+    <uf-form-element-select-button
+      title="Seçili Değerlendirme"
+      icon="radio_button_checked"
+      icon2="add"
+      (click)="addQuestion('radio')"
+    >
+    </uf-form-element-select-button>
+  </div>
+
+  <div class="flex flex-col justify-start mx-4 basis-2/3">
+    <uf-form-input title="Form başlığı"></uf-form-input>
+    <uf-textarea title="Form açıklaması"></uf-textarea>
+    <div class="p-1">
+      <uf-question
+        *ngFor="let question of questions; let id = index;"
+        [question]="question"
+        (edit)="editQuestion(question)"
+        (changePosition)="changePosition(question.id, $event)"
+        (delete)="deleteQuestion(question.id)"
+      >
+      </uf-question>
+    </div>
+    <div class="text-purple-300 text-center p-8 mb-8">
+      Uniforms Tarafından Hazırlanmıştır.
+    </div>
+    <div class="text-center">
+      <button mat-fab extended (click)="test()">
+        <mat-icon>save</mat-icon>
+        Kaydet
+      </button>
+    </div>
+  </div>
+</div>
