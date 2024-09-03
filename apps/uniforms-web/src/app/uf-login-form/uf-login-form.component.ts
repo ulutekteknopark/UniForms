@@ -33,10 +33,10 @@ export class UfLoginFormComponent {
   private authService: AuthService = inject(AuthService);
   constructor(public dialog: MatDialog) { }
 
-  openSignInModal(): void {
+  openSignupModal(): void {
     this.dialog.open(UfSignupFormComponent, {
-      maxWidth: '60vw',
-      maxHeight: '75vh',
+      maxWidth: '80vw',
+      maxHeight: '90vh',
 
       panelClass: ['border-4', 'border-solid', 'border-gray-300', 'rounded-[30px]'],
     });
