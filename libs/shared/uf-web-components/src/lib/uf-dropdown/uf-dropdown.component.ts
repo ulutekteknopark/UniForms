@@ -20,7 +20,7 @@ export class UfDropdownComponent {
     return this.choices?.['dropdown_title'] ?? 'Seçiniz...';
   }
 
-  get strings(): string[]{
+  get options(): string[]{
     return (this.choices?.['options'] as string[]).filter(str => str.length > 0)
   }
 }

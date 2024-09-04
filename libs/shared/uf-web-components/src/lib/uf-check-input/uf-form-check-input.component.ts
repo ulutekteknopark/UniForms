@@ -19,7 +19,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
 export class UfFormCheckInputComponent {
   @Input() choices?: { [key: string]: any };
 
-  get strings(): string[]{
+  get options(): string[]{
     return (this.choices?.['options'] as string[]).filter(str => str.length > 0)
   }
 }
