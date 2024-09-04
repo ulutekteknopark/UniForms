@@ -13,6 +13,7 @@ import { UfFormAddressComponent } from '../uf-form-address/uf-form-address.compo
 import { UfFormCheckInputComponent } from '../uf-check-input/uf-form-check-input.component';
 import { UfFormRadioInputComponent } from '../uf-radio-input/uf-form-radio-input.component';
 import { UfPhoneInputComponent } from '../uf-phone-input/uf-phone-input.component';
+import { UfDropdownComponent } from '../uf-dropdown/uf-dropdown.component';
 
 export interface FormQuestion {
   id: number;
@@ -43,7 +44,8 @@ export interface FormQuestion {
     UfDateInputComponent,
     UfFormCheckInputComponent,
     UfFormAddressComponent,
-    UfPhoneInputComponent
+    UfPhoneInputComponent,
+    UfDropdownComponent
   ],
   styleUrls: ['./uf-form-question.component.scss'],
 })
