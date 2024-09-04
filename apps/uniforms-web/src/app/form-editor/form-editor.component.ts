@@ -11,6 +11,7 @@ import { AddRateDialogComponent } from '../add-rate-dialog/add-rate-dialog.compo
 import { AddAddressDialogComponent } from '../add-address-dialog/add-address-dialog.component';
 import { AddCheckDialogComponent } from '../add-check-dialog/add-check-dialog.component';
 import { AddRadioDialogComponent } from '../add-radio-dialog/add-radio-dialog.component';
+import { AddDropdownDialogComponent } from '../add-dropdown-dialog/add-dropdown-dialog.component';
 import {
   UfFormElementSelectButtonComponent,
   UfFormInputComponent,
@@ -79,6 +80,8 @@ export class FormEditorComponent {
       this.openEditRadioDialog(question);
     }else if(question.type == 'text'){
       this.openEditTextfieldDialog(question)
+    }else if(question.type == 'dropdown'){
+      this.openEditDropdownDialog(question)
     }
   }
 
@@ -327,6 +330,38 @@ export class FormEditorComponent {
     });
   }
 
+  openAddDropdownDialog(): void {
+    const dialogRef = this.dialog.open(AddDropdownDialogComponent, {
+      data: {
+        isEditing: false,
+      },
+      ...ModalStyle,
+    });
+
+    dialogRef.componentInstance.addDropdownEvent.subscribe((eventData) => {
+      this.addQuestion('dropdown', eventData.title, true, eventData.required, eventData.choices);
+    });
+  }
+
+  openEditDropdownDialog(question: FormQuestion): void {
+    const dialogRef = this.dialog.open(AddDropdownDialogComponent, {
+      data: {
+        isEditing: true,
+        id: question.id,
+        text: question.text,
+        choices: question.choices,
+        required: question.required,
+      },
+      ...ModalStyle,
+    });
+
+    dialogRef.componentInstance.addDropdownEvent.subscribe((eventData) => {
+      let filteredQuestion = this.questions.filter(q => q.id === question.id)[0];
+      filteredQuestion.required = eventData.required;
+      filteredQuestion.text = eventData.title;
+      filteredQuestion.choices = eventData.choices;
+    });
+  }
 
   save() {
     alert("save()");

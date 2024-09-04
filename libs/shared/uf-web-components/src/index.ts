@@ -33,3 +33,5 @@ export * from './lib/uf-radio-input/uf-form-radio-input.component';
 export * from './lib/uf-form-address/uf-form-address.component';
 
 export * from './lib/uf-phone-input/uf-phone-input.component';
+
+export * from './lib/uf-dropdown/uf-dropdown.component';
