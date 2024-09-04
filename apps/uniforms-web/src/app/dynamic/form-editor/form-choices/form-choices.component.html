@@ -69,6 +69,14 @@
     </uf-form-check-input>
   </div>
   }
+  @else if (question.type=="dropdown"){
+  <div class="flex flex-row">
+    <uf-dropdown
+      [choices]="question.choices"
+      class="w-full">
+    </uf-dropdown>
+  </div>
+  }
   @else if (question.type=="rate"){
   <div class="flex flex-row">
     <uf-form-rate-input

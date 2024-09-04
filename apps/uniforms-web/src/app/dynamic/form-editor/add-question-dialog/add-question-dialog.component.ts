@@ -36,15 +36,19 @@ export class AddQuestionDialogComponent {
 
   @Output() addEvent = new EventEmitter<FormQuestion>();
 
-  titleFormControl = new FormControl('', [Validators.required]);
+  titleFC = new FormControl('', [Validators.required]);
   isRequired = false;
   choices : { [id:string] : any } = {};
 
   questionChoices : string[] = ['', '']; // check ve radio soruları için
 
+  // rate
   leftWordFC = new FormControl('', [Validators.required]);
   rightWordFC = new FormControl('', [Validators.required]);
   starCountFC = new FormControl(5, [Validators.required, Validators.min(3), Validators.max(10)]);
+
+  // dropdown
+  dropdownTextFC = new FormControl('');
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
     isEditing: boolean,
@@ -55,14 +59,17 @@ export class AddQuestionDialogComponent {
     required: boolean,
     choices?: { [id:string] : any },
   }) {
-    this.titleFormControl = new FormControl(this.data.text, [Validators.required]);
+    this.titleFC = new FormControl(this.data.text, [Validators.required]);
 
     if (data.required)
       this.isRequired = data.required;
 
     if( data.choices ){
-      if(['radio', 'check'].includes(this.data.type) && 'options' in data.choices){
+      if(['radio', 'check', 'dropdown'].includes(this.data.type) && 'options' in data.choices){
         this.questionChoices = data.choices['options'];
+        if(this.data.type == 'dropdown'){
+          this.dropdownTextFC.setValue(data.choices['dropdown_title']);
+        }
       }
       else if('rate' == data.type){
         this.rightWordFC.setValue(data.choices['rightWord']);
@@ -85,7 +92,7 @@ export class AddQuestionDialogComponent {
   }
 
   isValid() {
-    if(this.titleFormControl.invalid)
+    if(this.titleFC.invalid)
       return false;
 
     if(this.data.type == 'rate'){
@@ -93,7 +100,7 @@ export class AddQuestionDialogComponent {
         return false;
     }
 
-    if(['radio', 'check'].includes(this.data.type)){
+    if(['radio', 'check', 'dropdown'].includes(this.data.type)){
       if (this.questionChoices.length <= 2)
         return false;
     }
@@ -121,22 +128,23 @@ export class AddQuestionDialogComponent {
         'starCount': this.starCountFC.value,
       }
     }
-    else if(['radio', 'check'].includes(this.data.type)){
-      this.choices = {
-        'options': this.questionChoices,
+    else if(['radio', 'check', 'dropdown'].includes(this.data.type)){
+      this.choices['options'] = this.questionChoices;
+
+      if('dropdown' == this.data.type){
+        this.choices['dropdown_title'] = this.dropdownTextFC.value;
       }
     }
 
-    if(this.titleFormControl.valid){
+    if(this.titleFC.valid){
       const question :FormQuestion = {
         id: this.data.questionCount,
         type: this.data.type,
         position: this.data.position,
-        editable: true,
         answers: [],
 
         required: this.isRequired,
-        text: this.titleFormControl.value ?? '',
+        text: this.titleFC.value ?? '',
         choices: this.choices,
       };
       this.addEvent.emit(question);
@@ -184,6 +192,8 @@ export class AddQuestionDialogComponent {
         return 'Tik Değerlendirme';
       case 'radio':
         return 'Seçili Değerlendirme';
+      case 'dropdown':
+        return 'Açılır Menü';
       default:
         return 'Soru';
     }

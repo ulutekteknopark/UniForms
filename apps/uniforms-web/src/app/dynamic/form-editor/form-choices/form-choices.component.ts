@@ -5,7 +5,7 @@ import { MatIcon } from '@angular/material/icon';
 import { FormControl, Validators } from '@angular/forms';
 
 import { FormQuestion } from '../form-editor.component';
-import { UfDateInputComponent, UfEmailInputComponent, UfFormAddressComponent, UfFormInputComponent, UfFormRadioInputComponent, UfFormRateInputComponent, UfTextareaComponent } from '@uniforms/uf-web-components';
+import { UfDateInputComponent, UfDropdownComponent, UfEmailInputComponent, UfFormAddressComponent, UfFormInputComponent, UfFormRadioInputComponent, UfFormRateInputComponent, UfTextareaComponent } from '@uniforms/uf-web-components';
 import { UfFormCheckInputComponent } from 'libs/shared/uf-web-components/src/lib/uf-check-input/uf-form-check-input.component';
 
 @Component({
@@ -25,6 +25,7 @@ import { UfFormCheckInputComponent } from 'libs/shared/uf-web-components/src/lib
     UfFormRadioInputComponent,
     UfFormCheckInputComponent,
     UfFormRateInputComponent,
+    UfDropdownComponent,
   ],
   templateUrl: './form-choices.component.html',
   styleUrls: ['./form-choices.component.scss'],

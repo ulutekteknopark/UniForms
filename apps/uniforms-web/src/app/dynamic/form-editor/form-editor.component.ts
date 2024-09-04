@@ -16,7 +16,6 @@ export interface FormQuestion {
   type: string,
   required: boolean,
   position: number, // sorunun anketteki sırası
-  editable: boolean, // soru düzenlenebilir mi ? sadece editörde true olmalı
 
   text: string, // soru
 

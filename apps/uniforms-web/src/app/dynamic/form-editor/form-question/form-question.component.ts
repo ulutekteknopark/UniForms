@@ -21,6 +21,7 @@ import { UfFormChoicesComponent } from '../form-choices/form-choices.component';
 })
 export class UfFormQuestionComponent {
   @Input() question!: FormQuestion;
+  @Input() isInEditor: boolean = false;
 
   @Output() edit = new EventEmitter<void>();
   @Output() changePosition = new EventEmitter<number>();

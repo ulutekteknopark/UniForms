@@ -5,7 +5,7 @@
         {{ question.position }}. {{ question.text }}
       </div>
       <div class="ml-auto">
-        @if (question.editable){ @if (question.position > 0){
+        @if (isInEditor){ @if (question.position > 0){
         <button mat-icon-button (click)="onMoveUp()">
           <mat-icon>keyboard_arrow_up</mat-icon>
         </button>
@@ -30,7 +30,7 @@
       }
     </div>
   </div>
-  @if (question.editable){
+  @if (isInEditor){
   <div
     class="flex flex-row gap-4 w-full pt-4 justify-end border-t border-solid border-purple-200"
   >

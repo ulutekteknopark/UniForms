@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UfFormQuestionComponent } from './uf-form-question.component';
+import { UfDropdownComponent } from './uf-dropdown.component';
 
-describe('UfFormQuestionComponent', () => {
-  let component: UfFormQuestionComponent;
-  let fixture: ComponentFixture<UfFormQuestionComponent>;
+describe('UfDropdownComponent', () => {
+  let component: UfDropdownComponent;
+  let fixture: ComponentFixture<UfDropdownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UfFormQuestionComponent],
+      imports: [UfDropdownComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(UfFormQuestionComponent);
+    fixture = TestBed.createComponent(UfDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
