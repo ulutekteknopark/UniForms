@@ -19,7 +19,7 @@ export interface FormQuestion {
 
   text: string, // soru
 
-  choices: object, // sorunun şıkları
+  choices: { [id:string] : any }, // sorunun şıkları
   answers: string[], // kullanıcının cevapları
 }
 

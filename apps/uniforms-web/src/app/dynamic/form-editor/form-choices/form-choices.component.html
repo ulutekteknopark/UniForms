@@ -46,6 +46,7 @@
   </div>
   } @else if (question.type=="text"){
   <div class="flex flex-row">
+    @if (question.choices['longTextBox'] ?? true){
     <uf-textarea
       [inputFormControl]="this.formControls[0]"
       class="w-full"
@@ -53,6 +54,16 @@
       placeholder="Cevabınızı yazın ..."
     >
     </uf-textarea>
+    }
+    @else {
+    <uf-form-input
+      [inputFormControl]="this.formControls[0]"
+      class="w-full"
+      title="Cevap"
+      placeholder="Cevabınızı yazın ..."
+    >
+    </uf-form-input>
+    }
   </div>
   } @else if (question.type=="radio"){
   <div class="flex flex-row">

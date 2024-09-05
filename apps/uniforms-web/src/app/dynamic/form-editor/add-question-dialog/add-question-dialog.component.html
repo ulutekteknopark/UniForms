@@ -10,7 +10,14 @@
     @if (this.data.type == 'dropdown') {
       <uf-form-input class="flex-grow" title="Açılır Menü Yazı" [inputFormControl]="dropdownTextFC"></uf-form-input>
     }
-    @if (!['title'].includes(this.data.type)){
+    @else if (this.data.type == 'text'){
+    <uf-checkbox
+      title="Uzun metin kutusu"
+      [isChecked]="this.longTextBox"
+      (onCheckedChange)="onTextBoxChange($event)"
+    ></uf-checkbox>
+    }
+    @if (!['title', 'rate', 'check', 'radio'].includes(this.data.type)){
     <uf-checkbox
       title="Zorunlu Alan"
       [isChecked]="this.isRequired"
