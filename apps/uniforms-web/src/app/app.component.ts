@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './static/header/header.component';
+import { FooterComponent } from './static/footer/footer.component';
 
 @Component({
   standalone: true,
