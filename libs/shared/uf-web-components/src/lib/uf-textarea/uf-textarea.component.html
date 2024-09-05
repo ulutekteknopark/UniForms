@@ -1,4 +1,10 @@
-<mat-form-field class="w-full p-1" appearance="outline">
+<mat-form-field class="w-full p-1" [appearance]="appearance">
   <mat-label>{{ title }}</mat-label>
-  <textarea matInput [rows]="rows" [placeholder]="placeholder"></textarea>
+  <textarea matInput [formControl]="inputFormControl" [rows]="rows" [placeholder]="placeholder"></textarea>
+  @if (inputFormControl.hasError('required')) {
+    <mat-error>Bu alan zorunludur!</mat-error>
+  }
+  @else if (inputFormControl.invalid) {
+    <mat-error>{{ error }}</mat-error>
+  }
 </mat-form-field>

@@ -5,4 +5,7 @@
     <mat-option [value]="choice">{{ choice }}</mat-option>
     }
   </mat-select>
+  @if (dropdownFormControl.hasError('required')) {
+    <mat-error>Bu alan zorunludur!</mat-error>
+  }
 </mat-form-field>

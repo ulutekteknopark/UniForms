@@ -3,15 +3,12 @@ import { NgIf, NgFor } from '@angular/common';
 import { MatError } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatCheckbox } from '@angular/material/checkbox';
-
-// export interface FormCheckInputArgs {
-//   strings: string[],
-// }
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'uf-form-check-input',
   standalone: true,
-  imports: [MatIcon, MatError, NgIf, NgFor, MatCheckbox],
+  imports: [MatIcon, MatError, NgIf, NgFor, MatCheckbox, ReactiveFormsModule],
   templateUrl: './uf-form-check-input.component.html',
   styleUrls: ['./uf-form-check-input.component.scss'],
 })

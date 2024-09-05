@@ -1,5 +1,5 @@
 <div class="p-1 w-full">
-  <mat-form-field class="w-full" appearance="outline">
+  <mat-form-field class="w-full" [appearance]="appearance">
     @if(icon){
       <mat-icon matPrefix>{{ icon }}</mat-icon>
     }
@@ -10,7 +10,10 @@
         <mat-icon>close</mat-icon>
       </button>
     }
-    @if (inputFormControl.invalid) {
+    @if (inputFormControl.hasError('required')) {
+      <mat-error>Bu alan zorunludur!</mat-error>
+    }
+    @else if (inputFormControl.invalid) {
       <mat-error>{{ error }}</mat-error>
     }
   </mat-form-field>

@@ -1,28 +1,21 @@
 <div class="w-full flex flex-col justify-center">
   <section class="flex flex-row justify-between gap-4">
     @if(city){
-    <mat-form-field appearance="outline">
-      <mat-label>İl</mat-label>
-      <input
-        matInput
-        type="text"
-        [formControl]="addressFormControls[0]"
-        [required]="required"
-        placeholder="Örn. Denizli"
-      />
-    </mat-form-field>
+    <uf-form-input
+      title="İl"
+      placeholder="Örn. Denizli"
+      [inputFormControl]="addressFormControls[0]"
+      [required]="required"
+    ></uf-form-input>
     } @if(district){
-    <mat-form-field appearance="outline">
-      <mat-label>İlçe</mat-label>
-      <input
-        matInput
-        [formControl]="addressFormControls[1]"
-        [required]="required"
-        placeholder="Örn. Merkezefendi"
-      />
-    </mat-form-field>
+    <uf-form-input
+      title="İlçe"
+      placeholder="Örn. Merkezefendi"
+      [inputFormControl]="addressFormControls[1]"
+      [required]="required"
+    ></uf-form-input>
     } @if(postal_code){
-    <mat-form-field appearance="outline">
+    <mat-form-field class="p-1" appearance="outline">
       <mat-label>Posta Kodu</mat-label>
       <input
         matInput
@@ -33,6 +26,12 @@
         placeholder="Örn. 20100"
       />
       <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+      @if (addressFormControls[2].hasError('required')) {
+        <mat-error>Bu alan zorunludur!</mat-error>
+      }
+      @else if (addressFormControls[2].invalid) {
+        <mat-error>Geçerli bir değer girin!</mat-error>
+      }
     </mat-form-field>
     }
   </section>
@@ -47,6 +46,9 @@
         [required]="required"
         placeholder="Örn. Değirmenönü Mah. 1706 sok."
       ></textarea>
+      @if (addressFormControls[3].hasError('required')) {
+        <mat-error>Bu alan zorunludur!</mat-error>
+      }
     </mat-form-field>
     } @if(address2){
     <mat-form-field class="flex-grow" appearance="outline">
@@ -56,6 +58,9 @@
         [required]="required"
         matInput
       ></textarea>
+      @if (addressFormControls[4].hasError('required')) {
+        <mat-error>Bu alan zorunludur!</mat-error>
+      }
     </mat-form-field>
     }
   </section>

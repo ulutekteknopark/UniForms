@@ -17,7 +17,7 @@
       (onCheckedChange)="onTextBoxChange($event)"
     ></uf-checkbox>
     }
-    @if (!['title', 'rate', 'check'].includes(this.data.type)){
+    @if (!['title', 'rate', 'check', 'radio'].includes(this.data.type)){
     <uf-checkbox
       title="Zorunlu Alan"
       [isChecked]="this.isRequired"
