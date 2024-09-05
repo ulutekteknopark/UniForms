@@ -1,22 +1,27 @@
 <div class="flex flex-col gap-4 w-full justify-start">
   @if(question.type == 'title'){
-    <h2>{{ question.text }}</h2>
-  }
-  @else if (question.type=="name"){
-    <div class="flex flex-row">
-      <uf-form-input class="w-full" title="Ad"></uf-form-input>
-      <uf-form-input class="w-full" title="Soyad"></uf-form-input>
-    </div>
-  }
-  @else if (question.type=="email"){
+  <h2>{{ question.text }}</h2>
+  } @else if (question.type=="name"){
+  <div class="flex flex-row">
+    <uf-form-input
+      [inputFormControl]="formControls[0]"
+      class="w-full"
+      title="Ad"
+    ></uf-form-input>
+    <uf-form-input
+      [inputFormControl]="formControls[1]"
+      class="w-full"
+      title="Soyad"
+    ></uf-form-input>
+  </div>
+  } @else if (question.type=="email"){
   <div class="flex flex-row">
     <uf-email-input
-      [emailFormControl]="formControl"
+      [emailFormControl]="this.formControls[0]"
       class="w-full"
     ></uf-email-input>
   </div>
-  }
-  @else if (question.type=="address"){
+  } @else if (question.type=="address"){
   <div class="flex flex-row">
     <uf-form-address
       [choices]="question.choices"
@@ -24,64 +29,57 @@
       class="w-full"
     ></uf-form-address>
   </div>
-  }
-  @else if (question.type=="phone"){
+  } @else if (question.type=="phone"){
   <div class="flex flex-row">
     <uf-form-input
-      [inputFormControl]="formControl"
+      [inputFormControl]="this.formControls[0]"
       class="w-full"
       title="Telefon"
     ></uf-form-input>
   </div>
-  }
-  @else if (question.type=="date"){
+  } @else if (question.type=="date"){
   <div class="flex flex-row">
     <uf-date-input
-      [dateFormControl]="formControl"
+      [dateFormControl]="this.formControls[0]"
       class="w-full"
     ></uf-date-input>
   </div>
-  }
-  @else if (question.type=="text"){
+  } @else if (question.type=="text"){
   <div class="flex flex-row">
     <uf-textarea
-      [inputFormControl]="formControl"
+      [inputFormControl]="this.formControls[0]"
       class="w-full"
       title="Cevap"
       placeholder="Cevabınızı yazın ..."
     >
     </uf-textarea>
   </div>
-  }
-  @else if (question.type=="radio"){
+  } @else if (question.type=="radio"){
   <div class="flex flex-row">
     <uf-form-radio-input
+      [radioFormControl]="formControls[0]"
       [choices]="question.choices"
-      class="w-full">
+      class="w-full"
+    >
     </uf-form-radio-input>
   </div>
-  }
-  @else if (question.type=="check"){
+  } @else if (question.type=="check"){
   <div class="flex flex-row">
-    <uf-form-check-input
-      [choices]="question.choices"
-      class="w-full">
+    <uf-form-check-input [choices]="question.choices" class="w-full">
     </uf-form-check-input>
   </div>
-  }
-  @else if (question.type=="dropdown"){
+  } @else if (question.type=="dropdown"){
   <div class="flex flex-row">
     <uf-dropdown
+      [dropdownFormControl]="formControls[0]"
       [choices]="question.choices"
-      class="w-full">
+      class="w-full"
+    >
     </uf-dropdown>
   </div>
-  }
-  @else if (question.type=="rate"){
+  } @else if (question.type=="rate"){
   <div class="flex flex-row">
-    <uf-form-rate-input
-      [choices]="question.choices"
-      class="w-full">
+    <uf-form-rate-input [choices]="question.choices" class="w-full">
     </uf-form-rate-input>
   </div>
   }

@@ -33,7 +33,13 @@ import { UfFormCheckInputComponent } from 'libs/shared/uf-web-components/src/lib
 export class UfFormChoicesComponent implements OnInit, OnChanges {
   @Input() question!: FormQuestion;
 
-  formControl = new FormControl('');
+  formControls: FormControl[] = [
+    new FormControl(''), // tek şıkkı olan sorular için
+    new FormControl(''), // iki şıkkı olan sorular (örn: ad-soyad)
+    new FormControl(''), // ikiden fazla şıkkı olan sorular (adres vs..)
+    new FormControl(''),
+    new FormControl(''),
+  ];
 
   ngOnInit(): void {
     this.updateValidators();
@@ -46,15 +52,17 @@ export class UfFormChoicesComponent implements OnInit, OnChanges {
   }
 
   private updateValidators(): void {
-    if (this.question.required) {
-      this.formControl.addValidators([Validators.required]);
-    } else {
-      this.formControl.clearValidators();
-    }
+    this.formControls.forEach(formControl => {
+      if (this.question.required) {
+        formControl.addValidators([Validators.required]);
+      } else {
+        formControl.clearValidators();
+      }
 
-    if(this.question.type == 'email'){
-      this.formControl.addValidators([Validators.email]);
-    }
-    this.formControl.updateValueAndValidity();
+      if(this.question.type == 'email'){
+        formControl.addValidators([Validators.email]);
+      }
+      formControl.updateValueAndValidity();
+    });
   }
 }
