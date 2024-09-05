@@ -50,6 +50,9 @@ export class AddQuestionDialogComponent {
   // dropdown
   dropdownTextFC = new FormControl('');
 
+  // text
+  longTextBox :boolean = false;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
     isEditing: boolean,
     text: '',
@@ -77,6 +80,9 @@ export class AddQuestionDialogComponent {
         this.starCountFC.setValue(data.choices['starCount']);
         this.choices = data.choices;
       }
+      else if(this.data.type == 'text'){
+        this.longTextBox = data.choices['longTextBox'];
+      }
       else {
         this.choices = data.choices;
       }
@@ -87,8 +93,12 @@ export class AddQuestionDialogComponent {
     this.isRequired = req;
   }
 
-  onAddressRequiredChange(key: string, res: boolean){
-    this.choices[key] = res;
+  onAddressRequiredChange(key: string, req: boolean){
+    this.choices[key] = req;
+  }
+
+  onTextBoxChange(req: boolean){
+    this.longTextBox = req;
   }
 
   isValid() {
@@ -134,6 +144,9 @@ export class AddQuestionDialogComponent {
       if('dropdown' == this.data.type){
         this.choices['dropdown_title'] = this.dropdownTextFC.value;
       }
+    }
+    else if(this.data.type == 'text'){
+      this.choices['longTextBox'] = this.longTextBox;
     }
 
     if(this.titleFC.valid){
