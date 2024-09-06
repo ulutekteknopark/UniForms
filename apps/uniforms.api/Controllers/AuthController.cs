@@ -1,4 +1,5 @@
 using FirebaseAdmin.Auth;
+using Google.Apis.Auth;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -59,6 +60,27 @@ public class AuthController : ControllerBase
             return BadRequest(new { Error = exception.Message });
         }
     }
+
+    // Google ile login çalışabilmesi için front-end'den alınacak idToken'in /google-login API
+    // aracılığıyla back-end'e gönderlilmesi gerekmektedir.
+    [HttpPost("google-login")]
+    public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginRequest request)
+    {
+        try
+        {
+            var payload = await GoogleJsonWebSignature.ValidateAsync(request.IdToken);
+
+            var uid = payload.Subject;
+
+            var customToken = await FirebaseService.Auth.CreateCustomTokenAsync(uid);
+
+            return Ok(new { Token = customToken });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Error = ex.Message });
+        }
+    }
 }
 
 public class RegisterRequest
@@ -71,6 +93,11 @@ public class LoginRequest
 {
     public string? Email { get; set; }
     public string? Password { get; set; }
+}
+
+public class GoogleLoginRequest
+{
+    public string? IdToken { get; set; }
 }
 
 public class SignInResponse
