@@ -35,11 +35,11 @@ export class UfFormRateInputComponent {
   }
 
   wordRight(): string {
-    return this.choices?.['word_right'] ?? '';
+    return this.choices?.['rightWord'] ?? '';
   }
 
   wordLeft(): string {
-    return this.choices?.['word_left'] ?? '';
+    return this.choices?.['leftWord'] ?? '';
   }
 
   starCount(): number {
