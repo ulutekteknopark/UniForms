@@ -81,6 +81,37 @@ public class AuthController : ControllerBase
             return BadRequest(new { Error = ex.Message });
         }
     }
+
+    // Front-end tarafında yapılacak Facebook ile girişlerde Facebook 'access_token' sunmaktadır.
+    // Bu token'in back-end'e gönderilmesi gerekmektedir.
+    [HttpPost("facebook-login")]
+    public async Task<IActionResult> FacebookLogin([FromBody] FacebookLoginRequest request)
+    {
+        try
+        {
+            var fbValidationUrl = $"https://graph.facebook.com/me?access_token={request.AccessToken}&fields=id,email";
+
+            using (var httpClient = new HttpClient())
+            {
+                var fbResponse = await httpClient.GetAsync(fbValidationUrl);
+                if (!fbResponse.IsSuccessStatusCode)
+                {
+                    return Unauthorized(new { Error = "Invalid Facebook token." });
+                }
+
+                var fbUser = await fbResponse.Content.ReadFromJsonAsync<FacebookUserResponse>();
+                var uid = fbUser.Id;
+
+                var customToken = await FirebaseService.Auth.CreateCustomTokenAsync(uid);
+
+                return Ok(new { Token = customToken });
+            }
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Error = ex.Message });
+        }
+    }
 }
 
 public class RegisterRequest
@@ -108,3 +139,15 @@ public class SignInResponse
     public string? RefreshToken { get; set; }
     public string? ExpiresIn { get; set; }
 }
+
+public class FacebookLoginRequest
+{
+    public string? AccessToken { get; set; }
+}
+
+public class FacebookUserResponse
+{
+    public string? Id { get; set; }
+    public string? Email { get; set; }
+}
+
