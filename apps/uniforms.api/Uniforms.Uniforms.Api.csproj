@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.Firestore" Version="3.8.0" />
+    <PackageReference Include="NSwag.AspNetCore" Version="14.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
