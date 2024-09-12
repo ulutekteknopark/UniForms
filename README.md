@@ -1,18 +1,9 @@
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/8fbe003c-ddfb-4089-bdaf-18b14856062f" width=200>
-</p>
-<h1 align="center">
-  UniForms
+<h1>
+  <p align="center">
+    <img src="https://github.com/user-attachments/assets/8fbe003c-ddfb-4089-bdaf-18b14856062f" width=200>
+  </p>
 </h1>
 
-<br>
-
-<h3 align="center">
-  Esnek, Hızlı ve Kolay Form Oluşturma Deneyimi
-</h3>
-
-<br>
-<br>
 
 <p align="center">
   
@@ -30,6 +21,13 @@
   <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white">
 
 <p/>
+
+<br>
+
+<h3 align="center">
+  Esnek, Hızlı ve Kolay Form Oluşturma Deneyimi
+</h3>
+
 
 <br>
 <br>
