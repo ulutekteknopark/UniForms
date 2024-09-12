@@ -1,41 +1,51 @@
-# Uniforms
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8fbe003c-ddfb-4089-bdaf-18b14856062f" width=200>
+</p>
+<h1 align="center">
+  UniForms
+</h1>
 
-## Temel kurallar
+<br>
 
-[kutuphane-adı] = tüm kütüphane adları uf- ön takısı ile başlamalı ve kebab-case yazım tarzıyla isimlandirilmeli
-[component-adı] = tüm componentler uf- ön takısı ile başlamalı ve kebab-case yazım tarzıyla isimlandirilmeli
+<h3 align="center">
+  Esnek, Hızlı ve Kolay Form Oluşturma Deneyimi
+</h3>
 
-## Projeye yeni bir kütüphane eklenmesi - backend - api
+<br>
+<br>
 
-nx g @nx-dotnet/core:library --name=[kutuphane-adı] --language=C# --directory=[dizin] --template=classlib --testTemplate=xunit --pathScheme=nx
+<p align="center">
+  
+  <img src="https://img.shields.io/badge/nx-143055?style=for-the-badge&logo=nx&logoColor=white">
+  <img src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white">
+  <img src="https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34">
+  <img src="https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white">
+  <img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white">
+  <img src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white">
+  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white">
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
+  <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white">
 
-Örnek: kütüphane kullanıcı girişi yönetimi için yapılacaksa,
-[kutuphane-adı] = uf-auth-api
-[dizin] = auth
-nx g @nx-dotnet/core:library --name=uf-auth-api --language=C# --directory=auth --template=classlib --testTemplate=xunit --pathScheme=nx
+<p/>
 
-! projeye yeni api kütüphanesi eklendiğinde ana projeye referans olarak eklenmelidir. Aşağıdaki commit incelenerek benzer değişiklik yapılabilir
+<br>
+<br>
 
-- 7772becd597a686345d0805cd713c351a601a5e4 - ornek auth controller olusturuldu. kutuphane ana projye linklendi
+# Hedef
 
-## Projeye yeni bir kütüphane eklenmesi - frontend - web
+UniForms, kullanıcıların kolayca formlar oluşturmasına, düzenlemesine ve paylaşmasına
+olanak tanıyan bir web ve mobil uygulamadır. Proje, farklı platformlarda (web ve mobil) uyumlu
+çalışacak şekilde geliştirilmiştir.
 
-!Onemli: web tarafında dizin ismi verilirken ana libs dizini de isme eklenmelidir ve kutuphane adı dizin yolunun sonuna eklenmelidir.
+<br>
+<br>
 
-nx g @nx/angular:library --name=[kutuphane-adı] --directory=[dizin]/[kutuphane-adı] --addTailwind=true --buildable=true --projectNameAndRootFormat=as-provided
+# Katkıda Bulunma
 
-Örnek: kütüphane kullanıcı girişi yönetimi için yapılacaksa,
-[kutuphane-adı] = uf-auth-web
-[dizin] = libs/auth
-nx g @nx/angular:library --name=uf-auth-web --directory=libs/auth/uf-auth-web --addTailwind=true --buildable=true --projectNameAndRootFormat=as-provided
+Projeye katkıda bulunmadan önce [wiki](https://github.com/ulutekteknopark/UniForms/wiki) sayfasını okuyarak temel kuralları öğrenebilirsiniz.
 
-## Frontend projesine yeni bir component eklenmesi
-
-cd [proje-dizini] && nx g @nx/angular:component --name=[component-adı] --directory=src/lib/[component-adı] --export=true --nameAndDirectoryFormat=as-provided --style=scss --prefix=uf
-
-Örnek:
-cd libs/shared/uf-web-components && nx g @nx/angular:component --name=uf-button --directory=src/lib/uf-button --export=true --nameAndDirectoryFormat=as-provided --style=scss --prefix=uf
-
-! component adında ve prefix te uf yer aldığı için component oluştuktan sonra [component-adı].component.ts dosyasından fazladan olan prefix temizlenmeli
-
-- selector: 'uf-uf-button', => selector: 'uf-button',
+<br>
+<br>
